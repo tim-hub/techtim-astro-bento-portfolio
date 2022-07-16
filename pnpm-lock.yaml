@@ -17,6 +17,7 @@ specifiers:
   react: 18.2.0
   react-dom: 18.2.0
   react-icons: 4.4.0
+  react-simple-animate: ^3.5.0
   typescript: 4.7.4
 
 dependencies:
@@ -25,6 +26,7 @@ dependencies:
   next: 12.2.2_beenoklgwfttvph5dgxj7na7aq
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
+  react-simple-animate: 3.5.0_react-dom@18.2.0
 
 devDependencies:
   '@babel/core': 7.18.6
@@ -3091,6 +3093,14 @@ packages:
       use-callback-ref: 1.3.0_3hx2ussxxho4jajbwrd6gq34qe
       use-sidecar: 1.1.2_3hx2ussxxho4jajbwrd6gq34qe
     dev: true
+
+  /react-simple-animate/3.5.0_react-dom@18.2.0:
+    resolution: {integrity: sha512-+BBMDMHMHRAYncX5GYvDEerzVj7z4r/MIxnlDKV4K9suWKsUa8L4+AxNiMCyWek6IlecwIorm/q14VKnPYeXBw==}
+    peerDependencies:
+      react-dom: ^16.8.0 || ^17 || ^18
+    dependencies:
+      react-dom: 18.2.0_react@18.2.0
+    dev: false
 
   /react-style-singleton/2.2.1_3hx2ussxxho4jajbwrd6gq34qe:
     resolution: {integrity: sha512-ZWj0fHEMyWkHzKYUr2Bs/4zU6XLmq9HsgBURm7g5pAVfyn49DgUiNgY2d4lXRlYSiCif9YBGpQleewkcqddc7g==}

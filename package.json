@@ -13,7 +13,8 @@
     "@fontsource/raleway": "^4.5.9",
     "next": "12.2.2",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "react-simple-animate": "^3.5.0"
   },
   "peerDependencies": {
     "@chakra-ui/system": "2.2.2"
