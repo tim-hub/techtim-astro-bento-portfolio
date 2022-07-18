@@ -12,7 +12,7 @@ const Home: NextPage = () => {
       {/*  <Box >@TechTim42</Box>*/}
       {/*</Flex>*/}
       <Tooltip label="Tech Tim" aria-label='A tooltip'>
-        <Avatar size='xl' name='Tech Tim'/>
+        <Avatar size='xl' name='Tech Tim' src={'/techtim42.png'}/>
       </Tooltip>
 
       <Text>
