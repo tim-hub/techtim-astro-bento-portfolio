@@ -1,6 +1,21 @@
-import { Avatar, Flex, HStack, IconButton, Link, Switch, Text, Tooltip } from '@chakra-ui/react';
+import {
+  Accordion,
+  AccordionButton, AccordionIcon,
+  AccordionItem, AccordionPanel,
+  Avatar, Box,
+  Flex,
+  HStack,
+  IconButton,
+  Link,
+  List,
+  ListIcon,
+  ListItem,
+  Switch,
+  Text,
+  Tooltip
+} from '@chakra-ui/react';
 import NextLink from 'next/link';
-import { FaTwitter } from 'react-icons/fa';
+import { FaCheckCircle, FaTwitter } from 'react-icons/fa';
 
 export interface IntroProps {
   colorMode: string
@@ -11,7 +26,7 @@ export interface IntroProps {
   bios?: string[]
 }
 
-export const Intro = ({toggleColorMode, avatarUrl, title, twitterId}: IntroProps) => {
+export const Intro = ({toggleColorMode, avatarUrl, title, twitterId, bios}: IntroProps) => {
   return (
     <Flex align="center" justify="center" m={[2, 3]} direction="column" gap={'1em'}>
       <Tooltip label="Tech Tim" aria-label='A tooltip'>
@@ -19,12 +34,42 @@ export const Intro = ({toggleColorMode, avatarUrl, title, twitterId}: IntroProps
       </Tooltip>
 
       <Text>
-        {title}
-      </Text>
-      <Text>
-        learn, share and grow.
+        <NextLink href={`/`} passHref>
+          <Link rel="noopener">{title}
+          </Link>
+        </NextLink>
       </Text>
 
+      <List spacing={3} textAlign={'center'}>
+        <ListItem>
+          <ListIcon as={FaCheckCircle} color='green.500'/>
+          {bios ? bios[0] : ''}
+        </ListItem>
+      </List>
+
+      <Accordion allowToggle defaultIndex={[0]} width={'100%'}>
+        <AccordionItem>
+          <h2>
+            <AccordionButton>
+              <Box flex='1' textAlign='left'>
+                Know more about me
+              </Box>
+              <AccordionIcon />
+            </AccordionButton>
+          </h2>
+          <AccordionPanel pb={4}>
+            {
+              bios?.slice(1).map(
+                (bio)=> (
+                  <Text key={bio}>
+                    {bio}
+                  </Text>
+                )
+              )
+            }
+          </AccordionPanel>
+        </AccordionItem>
+      </Accordion>
 
       <Flex>
         <HStack>
