@@ -1,0 +1,40 @@
+User-agent: Baiduspider
+Disallow: /
+User-agent: Baiduspider-image
+Disallow: /
+User-agent: Baiduspider-video
+Disallow: /
+User-agent: Baiduspider-news
+Disallow: /
+User-agent: Baiduspider-favo
+Disallow: /
+User-agent: Baiduspider-cpro
+Disallow: /
+User-agent: Baiduspider-ads
+Disallow: /
+User-agent: 360Spider
+Disallow: /
+User-agent: GosoSpider
+Disallow: /
+
+User-agent: iaskspider
+Disallow: /
+User-agent: YodaoBot
+Disallow: /
+User-agent: Sosospider
+Disallow: /
+User-agent: Sosoimagespider
+Disallow: /
+User-agent: Sogou Web Sprider
+Disallow: /
+User-agent: sogou sprider
+Disallow: /
+User-agent: Sogou Orion spider
+Disallow: /
+User-agent: Sogou-Test-Spider
+Disallow: /
+
+
+User-agent: *
+Disallow: /404.html
+Disallow: /404/
