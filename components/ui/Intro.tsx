@@ -1,8 +1,11 @@
 import {
   Accordion,
-  AccordionButton, AccordionIcon,
-  AccordionItem, AccordionPanel,
-  Avatar, Box,
+  AccordionButton,
+  AccordionIcon,
+  AccordionItem,
+  AccordionPanel,
+  Avatar,
+  Box,
   Flex,
   HStack,
   IconButton,
@@ -15,18 +18,15 @@ import {
   Tooltip
 } from '@chakra-ui/react';
 import NextLink from 'next/link';
-import { FaCheckCircle, FaTwitter } from 'react-icons/fa';
+import { FaCheckCircle, FaGithub, FaStackOverflow, FaTwitter } from 'react-icons/fa';
+import { IIntroContext } from '../../state/SiteContext';
 
-export interface IntroProps {
+export interface IIntroProps extends IIntroContext {
   colorMode: string
   toggleColorMode: () => void
-  avatarUrl: string
-  title: string
-  twitterId: string
-  bios?: string[]
 }
 
-export const Intro = ({toggleColorMode, avatarUrl, title, twitterId, bios}: IntroProps) => {
+export const Intro = ({toggleColorMode, avatarUrl, title, twitterId, bios, stackOverflowId, githubId}: IIntroProps) => {
   return (
     <Flex align="center" justify="center" m={[2, 3]} direction="column" gap={'1em'}>
       <Tooltip label="Tech Tim" aria-label='A tooltip'>
@@ -54,13 +54,13 @@ export const Intro = ({toggleColorMode, avatarUrl, title, twitterId, bios}: Intr
               <Box flex='1' textAlign='left'>
                 Know more about me
               </Box>
-              <AccordionIcon />
+              <AccordionIcon/>
             </AccordionButton>
           </h2>
           <AccordionPanel pb={4}>
             {
               bios?.slice(1).map(
-                (bio)=> (
+                (bio) => (
                   <Text key={bio}>
                     {bio}
                   </Text>
@@ -73,9 +73,28 @@ export const Intro = ({toggleColorMode, avatarUrl, title, twitterId, bios}: Intr
 
       <Flex>
         <HStack>
+          {
+            stackOverflowId && <NextLink href={`https://stackoverflow.com/users/${stackOverflowId}`} passHref>
+              <Link target="_blank" rel="noopener">
+                <IconButton size="lg" colorScheme='orange' aria-label='StackOverflow' icon={<FaStackOverflow/>}>
+                  StackOverflow
+                </IconButton>
+              </Link>
+            </NextLink>
+          }
+          {
+            githubId && <NextLink href={`https://github.com/${githubId}`} passHref>
+              <Link target="_blank" rel="noopener">
+                <IconButton size="lg" aria-label='github' icon={<FaGithub/>}>
+                  Twitter
+                </IconButton>
+              </Link>
+            </NextLink>
+          }
+
           <NextLink href={`https://twitter.com/@${twitterId}`} passHref>
             <Link target="_blank" rel="noopener">
-              <IconButton colorScheme='twitter' aria-label='twitter' icon={<FaTwitter/>}>
+              <IconButton size="lg" colorScheme='twitter' aria-label='twitter' icon={<FaTwitter/>}>
                 Twitter
               </IconButton>
             </Link>
