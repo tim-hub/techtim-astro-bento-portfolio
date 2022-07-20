@@ -26,7 +26,17 @@ export interface IIntroProps extends IIntroContext {
   toggleColorMode: () => void
 }
 
-export const Intro = ({toggleColorMode, avatarUrl, title, twitterId, bios, stackOverflowId, githubId}: IIntroProps) => {
+export const Intro = (
+  {
+    toggleColorMode,
+    avatarUrl,
+    title,
+    twitterId,
+    bios,
+    stackOverflowId,
+    githubId,
+    colorMode
+  }: IIntroProps) => {
   return (
     <Flex align="center" justify="center" m={[2, 3]} direction="column" gap={'1em'}>
       <Tooltip label="Tech Tim" aria-label='A tooltip'>
