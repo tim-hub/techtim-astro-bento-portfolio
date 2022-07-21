@@ -107,7 +107,7 @@ export const Intro = (
           }
 
           {
-            twitterId && <NextLink href={`https://twitter.com/@${twitterId}`} passHref>
+            twitterId && <NextLink href={`https://twitter.com/${twitterId}`} passHref>
               <Link target="_blank" rel="noopener">
                 <Tooltip hasArrow label='Twitter'>
                   <IconButton size="lg" colorScheme='twitter' aria-label='twitter' icon={<FaTwitter/>}>
