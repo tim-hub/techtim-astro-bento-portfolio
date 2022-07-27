@@ -1,4 +1,5 @@
 import { createContext } from 'react';
+import { SITE_NAME } from '../utils/configs';
 
 export interface IIntroContext {
   avatarUrl: string
@@ -11,7 +12,7 @@ export interface IIntroContext {
 
 export const INTRO:IIntroContext = {
   avatarUrl: '/techtim42.png',
-  title: 'Tech Tim',
+  title: SITE_NAME,
   twitterId: 'TechTim42',
   stackOverflowId: '5249708/tim',
   githubId: 'tim-hub',
