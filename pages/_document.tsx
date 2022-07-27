@@ -1,5 +1,6 @@
 import { ColorModeScript } from '@chakra-ui/react'
 import NextDocument, { Html, Head, Main, NextScript } from 'next/document'
+import Script from 'next/script'
 import {theme} from '../theme'
 
 export default class Document extends NextDocument {
@@ -15,6 +16,7 @@ export default class Document extends NextDocument {
         <ColorModeScript initialColorMode={theme.config.initialColorMode} />
         <Main />
         <NextScript />
+        <Script async defer data-website-id="653a53a5-23d1-49e2-a8cf-669aad362b03" src="/umami.js"/>
         </body>
       </Html>
     )
