@@ -7,6 +7,7 @@ export interface IIntroContext {
   twitterId: string
   stackOverflowId?: string
   githubId?: string
+  devToId?: string
   bios?: string[]
 }
 
@@ -16,10 +17,11 @@ export const INTRO:IIntroContext = {
   twitterId: 'TechTim42',
   stackOverflowId: '5249708/tim',
   githubId: 'tim-hub',
+  devToId: 'timhub',
   bios: [
     'Learn, Share and Grow ❤️',
     '💻 Software Engineer | AWS Professional | Open Source Lover ',
-    '☘️ Be more productive, Better in communicating, Contribute more to community ️'
+    '☘️ Passionate about Dev Experience Improvement (DEI)️'
   ]
 }
 const SiteContext = createContext({intro: INTRO});
