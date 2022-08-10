@@ -24,8 +24,6 @@ import {
   FaStackOverflow,
   FaTwitter,
   FaDev,
-  FaDice,
-  FaMedium,
   FaReadme,
   FaMediumM
 } from 'react-icons/fa';
@@ -132,7 +130,7 @@ export const Intro = (
             twitterId && <NextLink href={`https://threadreaderapp.com/user/${twitterId}`} passHref>
               <Link target="_blank" rel="noopener">
                 <Tooltip hasArrow label='Thread Reader'>
-                  <IconButton size="lg" colorScheme={'teal'} aria-label='thread-reader' icon={<FaReadme/>}>
+                  <IconButton size="lg" colorScheme={'gray'} aria-label='thread-reader' icon={<FaReadme/>}>
                     Thread Reader
                   </IconButton>
                 </Tooltip>
@@ -158,7 +156,7 @@ export const Intro = (
             mediumId && <NextLink href={`https://medium.com/@${mediumId}`} passHref>
               <Link target="_blank" rel="noopener">
                 <Tooltip hasArrow label='Medium'>
-                  <IconButton size="lg" colorScheme={'blackAlpha'} aria-label='medium' icon={<FaMedium/>}>
+                  <IconButton size="lg" colorScheme={'teal'} aria-label='medium' icon={<FaMediumM/>}>
                     Medium
                   </IconButton>
                 </Tooltip>
