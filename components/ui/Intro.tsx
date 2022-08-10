@@ -18,7 +18,17 @@ import {
   Tooltip
 } from '@chakra-ui/react';
 import NextLink from 'next/link';
-import { FaCheckCircle, FaGithub, FaStackOverflow, FaTwitter, FaDev, FaDice } from 'react-icons/fa';
+import {
+  FaCheckCircle,
+  FaGithub,
+  FaStackOverflow,
+  FaTwitter,
+  FaDev,
+  FaDice,
+  FaMedium,
+  FaReadme,
+  FaMediumM
+} from 'react-icons/fa';
 import { IIntroContext } from '../../state/SiteContext';
 
 export interface IIntroProps extends IIntroContext {
@@ -35,7 +45,8 @@ export const Intro = (
     bios,
     stackOverflowId,
     githubId,
-    devToId
+    devToId,
+    mediumId
   }: IIntroProps) => {
   return (
     <Flex align="center" justify="center" m={[2, 3]} direction="column" gap={'1em'}>
@@ -117,6 +128,17 @@ export const Intro = (
               </Link>
             </NextLink>
           }
+          {
+            twitterId && <NextLink href={`https://threadreaderapp.com/user/${twitterId}`} passHref>
+              <Link target="_blank" rel="noopener">
+                <Tooltip hasArrow label='Thread Reader'>
+                  <IconButton size="lg" colorScheme={'teal'} aria-label='thread-reader' icon={<FaReadme/>}>
+                    Thread Reader
+                  </IconButton>
+                </Tooltip>
+              </Link>
+            </NextLink>
+          }
         </HStack>
       </Flex>
       <Flex>
@@ -133,11 +155,11 @@ export const Intro = (
             </NextLink>
           }
           {
-            twitterId && <NextLink href={`https://threadreaderapp.com/user/${twitterId}`} passHref>
+            mediumId && <NextLink href={`https://medium.com/@${mediumId}`} passHref>
               <Link target="_blank" rel="noopener">
-                <Tooltip hasArrow label='Thread Reader'>
-                  <IconButton size="lg" colorScheme={'teal'} aria-label='thread-reader' icon={<FaDice/>}>
-                    Thread Reader
+                <Tooltip hasArrow label='Medium'>
+                  <IconButton size="lg" colorScheme={'blackAlpha'} aria-label='medium' icon={<FaMedium/>}>
+                    Medium
                   </IconButton>
                 </Tooltip>
               </Link>
