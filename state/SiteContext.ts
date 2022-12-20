@@ -5,6 +5,7 @@ export interface IIntroContext {
   avatarUrl: string
   title: string
   twitterId: string
+  mastodonId: string
   stackOverflowId?: string
   githubId?: string
   devToId?: string
@@ -16,6 +17,7 @@ export const INTRO: IIntroContext = {
   avatarUrl: '/techtim42.png',
   title: SITE_NAME,
   twitterId: 'TechTim42',
+  mastodonId: 'techtim',
   stackOverflowId: '5249708/tim',
   githubId: 'tim-hub',
   devToId: 'timhub',

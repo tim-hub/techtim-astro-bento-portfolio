@@ -25,7 +25,7 @@ import {
   FaTwitter,
   FaDev,
   FaReadme,
-  FaMediumM
+  FaMediumM, FaMastodon
 } from 'react-icons/fa';
 import { IIntroContext } from '../../state/SiteContext';
 
@@ -40,6 +40,7 @@ export const Intro = (
     avatarUrl,
     title,
     twitterId,
+    mastodonId,
     bios,
     stackOverflowId,
     githubId,
@@ -107,14 +108,28 @@ export const Intro = (
             githubId && <NextLink href={`https://github.com/${githubId}`} passHref>
               <Link target="_blank" rel="noopener">
                 <Tooltip hasArrow label='Github'>
-                  <IconButton size="lg" aria-label='github' icon={<FaGithub/>}>
+                  <IconButton size="lg" colorScheme='gray' aria-label='github' icon={<FaGithub/>}>
                     Github
                   </IconButton>
                 </Tooltip>
               </Link>
             </NextLink>
           }
-
+        </HStack>
+      </Flex>
+      <Flex>
+        <HStack>
+          {
+            mastodonId && <NextLink href={`https://awscommunity.social/${mastodonId}`} rel="me" passHref>
+              <Link target="_blank" rel="nooppener">
+                <Tooltip hasArrow label='AWS Community Mastodon'>
+                  <IconButton size="lg" colorScheme='purple' aria-label='mastodon' icon={<FaMastodon/>}>
+                    Mastodon
+                  </IconButton>
+                </Tooltip>
+              </Link>
+            </NextLink>
+          }
           {
             twitterId && <NextLink href={`https://twitter.com/${twitterId}`} passHref>
               <Link target="_blank" rel="noopener">
@@ -130,7 +145,7 @@ export const Intro = (
             twitterId && <NextLink href={`https://threadreaderapp.com/user/${twitterId}`} passHref>
               <Link target="_blank" rel="noopener">
                 <Tooltip hasArrow label='Thread Reader'>
-                  <IconButton size="lg" colorScheme={'gray'} aria-label='thread-reader' icon={<FaReadme/>}>
+                  <IconButton size="lg" colorScheme={'yellow'} aria-label='thread-reader' icon={<FaReadme/>}>
                     Thread Reader
                   </IconButton>
                 </Tooltip>
@@ -145,7 +160,7 @@ export const Intro = (
             devToId && <NextLink href={`https://dev.to/${devToId}`} passHref>
               <Link target="_blank" rel="noopener">
                 <Tooltip hasArrow label='Dev.to'>
-                  <IconButton size="lg" colorScheme={'gray'} aria-label='dev.to' icon={<FaDev/>}>
+                  <IconButton size="lg" colorScheme={'blue'} aria-label='dev.to' icon={<FaDev/>}>
                     Dev.to
                   </IconButton>
                 </Tooltip>
