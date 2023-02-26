@@ -25,7 +25,8 @@ export const INTRO: IIntroContext = {
   bios: [
     'Learn, Share and Grow ❤️',
     '💻 Software Engineer | AWS Professional | Open Source Lover ',
-    '☘️ Passionate about Dev Experience Improvement (DEI)️'
+    '☘️ Passionate about Dev Experience Improvement (DEI)️',
+    '☁️ AWS Community Builder'
   ]
 }
 const SiteContext = createContext({intro: INTRO});
