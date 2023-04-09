@@ -46,7 +46,9 @@ export const Intro = (
     stackOverflowId,
     githubId,
     devToId,
-    mediumId
+    mediumId,
+    intro,
+    dx
   }: IIntroProps) => {
   return (
     <Flex align="center" justify="center" m={[2, 3]} direction="column" gap={'1em'}>
@@ -62,11 +64,11 @@ export const Intro = (
       <List spacing={3} textAlign={'center'}>
         <ListItem>
           <ListIcon as={FaCheckCircle} color='green.500'/>
-          {bios ? bios[0] : ''}
+          {intro}
         </ListItem>
       </List>
 
-      <Accordion allowToggle defaultIndex={[0]} width={'100%'}>
+      <Accordion allowToggle defaultIndex={[0]} width={'100%'} allowMultiple>
         <AccordionItem>
           <h2>
             <AccordionButton>
@@ -78,10 +80,31 @@ export const Intro = (
           </h2>
           <AccordionPanel pb={4}>
             {
-              bios?.slice(1).map(
+              bios?.map(
                 (bio) => (
                   <Text key={bio}>
                     {bio}
+                  </Text>
+                )
+              )
+            }
+          </AccordionPanel>
+        </AccordionItem>
+        <AccordionItem>
+          <h2>
+            <AccordionButton>
+              <Box flex='1' textAlign='left'>
+                What is DX? DXI(mprovement)?
+              </Box>
+              <AccordionIcon/>
+            </AccordionButton>
+          </h2>
+          <AccordionPanel pb={4}>
+            {
+              dx?.map(
+                (d) => (
+                  <Text key={d}>
+                    {d}
                   </Text>
                 )
               )
