@@ -17,17 +17,18 @@ import {
   Text,
   Tooltip
 } from '@chakra-ui/react';
-import NextLink from 'next/link';
 import {
   FaCheckCircle,
-  FaGithub,
-  FaStackOverflow,
-  FaTwitter,
   FaDev,
+  FaGithub,
+  FaMastodon,
+  FaMediumM,
   FaReadme,
-  FaMediumM, FaMastodon
+  FaStackOverflow,
+  FaTwitter
 } from 'react-icons/fa';
 import { IIntroContext } from '../../state/SiteContext';
+import CustomLink from './CustomLink';
 
 export interface IIntroProps extends IIntroContext {
   colorMode: string
@@ -54,10 +55,8 @@ export const Intro = (
       </Tooltip>
 
       <Text>
-        <NextLink href={`/`} passHref>
-          <Link rel="noopener">{title}
-          </Link>
-        </NextLink>
+        <Link rel="noopener" href={"/"} isExternal={false}>{title}
+        </Link>
       </Text>
 
       <List spacing={3} textAlign={'center'}>
@@ -94,89 +93,75 @@ export const Intro = (
       <Flex>
         <HStack>
           {
-            stackOverflowId && <NextLink href={`https://stackoverflow.com/users/${stackOverflowId}`} passHref>
-              <Link target="_blank" rel="noopener">
-                <Tooltip hasArrow label='StackOverflow'>
-                  <IconButton size="lg" colorScheme='orange' aria-label='StackOverflow' icon={<FaStackOverflow/>}>
-                    StackOverflow
-                  </IconButton>
-                </Tooltip>
-              </Link>
-            </NextLink>
+            stackOverflowId && <CustomLink href={`https://stackoverflow.com/users/${stackOverflowId}`}>
+              <Tooltip hasArrow label='StackOverflow'>
+                <IconButton size="lg" colorScheme='orange' aria-label='StackOverflow' icon={<FaStackOverflow/>}>
+                  StackOverflow
+                </IconButton>
+              </Tooltip>
+            </CustomLink>
           }
           {
-            githubId && <NextLink href={`https://github.com/${githubId}`} passHref>
-              <Link target="_blank" rel="noopener">
-                <Tooltip hasArrow label='Github'>
-                  <IconButton size="lg" colorScheme='gray' aria-label='github' icon={<FaGithub/>}>
-                    Github
-                  </IconButton>
-                </Tooltip>
-              </Link>
-            </NextLink>
+            githubId && <CustomLink href={`https://github.com/${githubId}`}>
+              <Tooltip hasArrow label='Github'>
+                <IconButton size="lg" colorScheme='gray' aria-label='github' icon={<FaGithub/>}>
+                  Github
+                </IconButton>
+              </Tooltip>
+            </CustomLink>
           }
         </HStack>
       </Flex>
       <Flex>
         <HStack>
           {
-            mastodonId && <NextLink href={`https://awscommunity.social/${mastodonId}`} rel="me" passHref>
-              <Link target="_blank" rel="nooppener">
-                <Tooltip hasArrow label='AWS Community Mastodon'>
-                  <IconButton size="lg" colorScheme='purple' aria-label='mastodon' icon={<FaMastodon/>}>
-                    Mastodon
-                  </IconButton>
-                </Tooltip>
-              </Link>
-            </NextLink>
+            mastodonId && <CustomLink href={`https://awscommunity.social/${mastodonId}`}>
+              <Tooltip hasArrow label='AWS Community Mastodon'>
+                <IconButton size="lg" colorScheme='purple' aria-label='mastodon' icon={<FaMastodon/>}>
+                  Mastodon
+                </IconButton>
+              </Tooltip>
+            </CustomLink>
           }
           {
-            twitterId && <NextLink href={`https://twitter.com/${twitterId}`} passHref>
-              <Link target="_blank" rel="noopener">
-                <Tooltip hasArrow label='Twitter'>
-                  <IconButton size="lg" colorScheme='twitter' aria-label='twitter' icon={<FaTwitter/>}>
-                    Twitter
-                  </IconButton>
-                </Tooltip>
-              </Link>
-            </NextLink>
+            twitterId && <CustomLink href={`https://twitter.com/${twitterId}`}>
+              <Tooltip hasArrow label='Twitter'>
+                <IconButton size="lg" colorScheme='twitter' aria-label='twitter' icon={<FaTwitter/>}>
+                  Twitter
+                </IconButton>
+              </Tooltip>
+            </CustomLink>
           }
           {
-            twitterId && <NextLink href={`https://threadreaderapp.com/user/${twitterId}`} passHref>
-              <Link target="_blank" rel="noopener">
-                <Tooltip hasArrow label='Thread Reader'>
-                  <IconButton size="lg" colorScheme={'yellow'} aria-label='thread-reader' icon={<FaReadme/>}>
-                    Thread Reader
-                  </IconButton>
-                </Tooltip>
-              </Link>
-            </NextLink>
+            twitterId && <CustomLink href={`https://threadreaderapp.com/user/${twitterId}`}>
+              <Tooltip hasArrow label='Thread Reader'>
+                <IconButton size="lg" colorScheme={'yellow'} aria-label='thread-reader' icon={<FaReadme/>}>
+                  Thread Reader
+                </IconButton>
+              </Tooltip>
+            </CustomLink>
           }
         </HStack>
       </Flex>
       <Flex>
         <HStack>
           {
-            devToId && <NextLink href={`https://dev.to/${devToId}`} passHref>
-              <Link target="_blank" rel="noopener">
-                <Tooltip hasArrow label='Dev.to'>
-                  <IconButton size="lg" colorScheme={'blue'} aria-label='dev.to' icon={<FaDev/>}>
-                    Dev.to
-                  </IconButton>
-                </Tooltip>
-              </Link>
-            </NextLink>
+            devToId && <CustomLink href={`https://dev.to/${devToId}`}>
+              <Tooltip hasArrow label='Dev.to'>
+                <IconButton size="lg" colorScheme={'blue'} aria-label='dev.to' icon={<FaDev/>}>
+                  Dev.to
+                </IconButton>
+              </Tooltip>
+            </CustomLink>
           }
           {
-            mediumId && <NextLink href={`https://medium.com/@${mediumId}`} passHref>
-              <Link target="_blank" rel="noopener">
-                <Tooltip hasArrow label='Medium'>
-                  <IconButton size="lg" colorScheme={'teal'} aria-label='medium' icon={<FaMediumM/>}>
-                    Medium
-                  </IconButton>
-                </Tooltip>
-              </Link>
-            </NextLink>
+            mediumId && <CustomLink href={`https://medium.com/@${mediumId}`}>
+              <Tooltip hasArrow label='Medium'>
+                <IconButton size="lg" colorScheme={'teal'} aria-label='medium' icon={<FaMediumM/>}>
+                  Medium
+                </IconButton>
+              </Tooltip>
+            </CustomLink>
           }
         </HStack>
       </Flex>
