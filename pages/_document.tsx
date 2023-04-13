@@ -23,7 +23,7 @@ export default class Document extends NextDocument {
             async
             defer
             data-website-id="653a53a5-23d1-49e2-a8cf-669aad362b03"
-            src={`https://umami.bai.uno/umami.js`}
+            src={`https://stats.techtim42.com/umami.js`}
           />
         </body>
       </Html>
