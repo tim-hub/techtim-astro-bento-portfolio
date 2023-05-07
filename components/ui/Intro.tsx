@@ -19,18 +19,13 @@ import {
 } from '@chakra-ui/react';
 import {
   FaCheckCircle,
-  FaDev,
-  FaGithub,
-  FaMastodon,
-  FaMediumM,
-  FaReadme,
-  FaStackOverflow,
-  FaTwitter
 } from 'react-icons/fa';
-import { IIntroContext } from '../../state/SiteContext';
+import { IntroContextType } from '../../state/SiteContext';
 import CustomLink from './CustomLink';
+import { IconType } from 'react-icons/lib';
+import { getIcon } from '../../state/ComponentUtils';
 
-export interface IIntroProps extends IIntroContext {
+export interface IIntroProps extends IntroContextType {
   colorMode: string
   toggleColorMode: () => void
 }
@@ -40,15 +35,9 @@ export const Intro = (
     toggleColorMode,
     avatarUrl,
     title,
-    twitterId,
-    mastodonId,
-    bios,
-    stackOverflowId,
-    githubId,
-    devToId,
-    mediumId,
     intro,
-    dx
+    sections,
+    socials,
   }: IIntroProps) => {
   return (
     <Flex align="center" justify="center" m={[2, 3]} direction="column" gap={'1em'}>
@@ -69,127 +58,56 @@ export const Intro = (
       </List>
 
       <Accordion allowToggle defaultIndex={[0]} width={'100%'} allowMultiple>
-        <AccordionItem>
-          <h2>
-            <AccordionButton>
-              <Box flex='1' textAlign='left'>
-                Know more about me
-              </Box>
-              <AccordionIcon/>
-            </AccordionButton>
-          </h2>
-          <AccordionPanel pb={4}>
-            {
-              bios?.map(
-                (bio) => (
-                  <Text key={bio}>
-                    {bio}
-                  </Text>
-                )
-              )
-            }
-          </AccordionPanel>
-        </AccordionItem>
-        <AccordionItem>
-          <h2>
-            <AccordionButton>
-              <Box flex='1' textAlign='left'>
-                What is DX? DXI(mprovement)?
-              </Box>
-              <AccordionIcon/>
-            </AccordionButton>
-          </h2>
-          <AccordionPanel pb={4}>
-            {
-              dx?.map(
-                (d) => (
-                  <Text key={d}>
-                    {d}
-                  </Text>
-                )
-              )
-            }
-          </AccordionPanel>
-        </AccordionItem>
+        {
+          sections?.map(
+            (section) => (
+              <AccordionItem key={section.header}>
+                <h2>
+                  <AccordionButton>
+                    <Box flex='1' textAlign='left'>
+                      {section.header}
+                    </Box>
+                    <AccordionIcon/>
+                  </AccordionButton>
+                </h2>
+                <AccordionPanel pb={4}>
+                  {
+                    section?.items?.map(
+                      (item) => (
+                        <Text key={item}>
+                          {item}
+                        </Text>
+                      )
+                    )
+                  }
+                </AccordionPanel>
+              </AccordionItem>
+            )
+          )
+        }
       </Accordion>
 
-      <Flex>
-        <HStack>
-          {
-            stackOverflowId && <CustomLink href={`https://stackoverflow.com/users/${stackOverflowId}`}>
-              <Tooltip hasArrow label='StackOverflow'>
-                <IconButton size="lg" colorScheme='orange' aria-label='StackOverflow' icon={<FaStackOverflow/>}>
-                  StackOverflow
-                </IconButton>
-              </Tooltip>
-            </CustomLink>
-          }
-          {
-            githubId && <CustomLink href={`https://github.com/${githubId}`}>
-              <Tooltip hasArrow label='Github'>
-                <IconButton size="lg" colorScheme='gray' aria-label='github' icon={<FaGithub/>}>
-                  Github
-                </IconButton>
-              </Tooltip>
-            </CustomLink>
-          }
-        </HStack>
-      </Flex>
-      <Flex>
-        <HStack>
-          {
-            mastodonId && <CustomLink href={`https://awscommunity.social/${mastodonId}`}>
-              <Tooltip hasArrow label='AWS Community Mastodon'>
-                <IconButton size="lg" colorScheme='purple' aria-label='mastodon' icon={<FaMastodon/>}>
-                  Mastodon
-                </IconButton>
-              </Tooltip>
-            </CustomLink>
-          }
-          {
-            twitterId && <CustomLink href={`https://twitter.com/${twitterId}`}>
-              <Tooltip hasArrow label='Twitter'>
-                <IconButton size="lg" colorScheme='twitter' aria-label='twitter' icon={<FaTwitter/>}>
-                  Twitter
-                </IconButton>
-              </Tooltip>
-            </CustomLink>
-          }
-          {
-            twitterId && <CustomLink href={`https://threadreaderapp.com/user/${twitterId}`}>
-              <Tooltip hasArrow label='Thread Reader'>
-                <IconButton size="lg" colorScheme={'yellow'} aria-label='thread-reader' icon={<FaReadme/>}>
-                  Thread Reader
-                </IconButton>
-              </Tooltip>
-            </CustomLink>
-          }
-        </HStack>
-      </Flex>
-      <Flex>
-        <HStack>
-          {
-            devToId && <CustomLink href={`https://dev.to/${devToId}`}>
-              <Tooltip hasArrow label='Dev.to'>
-                <IconButton size="lg" colorScheme={'blue'} aria-label='dev.to' icon={<FaDev/>}>
-                  Dev.to
-                </IconButton>
-              </Tooltip>
-            </CustomLink>
-          }
-          {
-            mediumId && <CustomLink href={`https://medium.com/@${mediumId}`}>
-              <Tooltip hasArrow label='Medium'>
-                <IconButton size="lg" colorScheme={'teal'} aria-label='medium' icon={<FaMediumM/>}>
-                  Medium
-                </IconButton>
-              </Tooltip>
-            </CustomLink>
-          }
-        </HStack>
-      </Flex>
 
-
+      {
+        socials?.map((_, index) => {
+          return <Flex key={index}> <HStack>
+            {
+              socials[index].length && socials[index].map(
+                (social) => (
+                  <CustomLink href={social.url} key={social.label}>
+                    <Tooltip hasArrow label={social.label}>
+                      <IconButton size="lg" colorScheme={social.colorSchema} aria-label={social.label}
+                                  icon={getIcon(social.label)}>
+                        {social.label}
+                      </IconButton>
+                    </Tooltip>
+                  </CustomLink>
+                )
+              )
+            }
+          </HStack> </Flex>
+        })
+      }
       <Flex align="center" justify="center" direction="column">
         <Tooltip hasArrow label='Dark/Light Switch'>
           <Box>
