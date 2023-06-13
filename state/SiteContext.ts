@@ -42,7 +42,7 @@ export const INTRO: IntroContextType = {
       // 2nd line, mastodon, twitter and thread reader
       {
         label: 'Mastodon',
-        url: 'https://mastodon.social/@techtim',
+        url: 'https://awscommunity.social/@techtim',
         colorSchema: 'purple'
       },
       {
