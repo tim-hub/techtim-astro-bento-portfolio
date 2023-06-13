@@ -7,7 +7,7 @@
   "version": "0.1.0",
   "author": {
     "name": "Tech Tim",
-    "url": "https://twitter.com/TechTim42"
+    "url": "https://TechTim42.com"
   },
   "repository": {
     "type": "git",
@@ -24,7 +24,7 @@
   "dependencies": {
     "@fontsource/open-sans": "4.5.14",
     "@fontsource/raleway": "4.5.12",
-    "next": "13.3.0",
+    "next": "13.4.5",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-simple-animate": "3.5.2"
