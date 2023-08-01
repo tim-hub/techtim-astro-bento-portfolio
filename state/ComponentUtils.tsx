@@ -1,4 +1,4 @@
-import { FaDev, FaGithub, FaMastodon, FaMediumM, FaReadme, FaStackOverflow, FaTwitter } from 'react-icons/fa';
+import { FaDev, FaGithub, FaMastodon, FaMediumM, FaReadme, FaStackOverflow, FaTwitter, FaYoutube } from 'react-icons/fa';
 
 export const getIcon = (icon: string): React.ReactElement => {
   switch (icon) {
@@ -16,6 +16,8 @@ export const getIcon = (icon: string): React.ReactElement => {
       return <FaStackOverflow/>
     case 'Twitter':
       return <FaTwitter/>
+    case 'Youtube':
+      return <FaYoutube/>
     default:
       return <FaDev/>
   }
