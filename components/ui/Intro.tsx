@@ -1,3 +1,4 @@
+'use client'
 import {
   Accordion,
   AccordionButton,
@@ -15,33 +16,31 @@ import {
   ListItem,
   Switch,
   Text,
-  Tooltip
+  Tooltip, useColorMode
 } from '@chakra-ui/react';
 import {
   FaCheckCircle,
 } from 'react-icons/fa';
 import { IntroContextType } from '../../state/SiteContext';
 import CustomLink from './CustomLink';
-import { IconType } from 'react-icons/lib';
 import { getIcon } from '../../state/ComponentUtils';
+import { SITE_NAME } from '../../utils/configs';
 
-export interface IIntroProps extends IntroContextType {
-  colorMode: string
-  toggleColorMode: () => void
-}
+export interface IIntroProps extends IntroContextType {}
 
 export const Intro = (
   {
-    toggleColorMode,
     avatarUrl,
     title,
     intro,
     sections,
     socials,
   }: IIntroProps) => {
+
+  const {colorMode, toggleColorMode} = useColorMode()
   return (
     <Flex align="center" justify="center" m={[2, 3]} direction="column" gap={'1em'}>
-      <Tooltip label="Tech Tim" aria-label='A tooltip'>
+      <Tooltip label={SITE_NAME} aria-label='A tooltip'>
         <Avatar size='xl' name='Tech Tim' colorScheme='twitter' src={avatarUrl}/>
       </Tooltip>
 
@@ -57,7 +56,7 @@ export const Intro = (
         </ListItem>
       </List>
 
-      <Accordion allowToggle defaultIndex={[0]} width={'100%'} allowMultiple>
+      <Accordion defaultIndex={[0]} width={'100%'} allowMultiple>
         {
           sections?.map(
             (section) => (

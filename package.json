@@ -22,24 +22,25 @@
   },
   "license": "private",
   "dependencies": {
+    "@chakra-ui/next-js": "2.1.5",
     "@fontsource/open-sans": "4.5.14",
     "@fontsource/raleway": "4.5.12",
-    "next": "13.4.5",
+    "next": "13.4.12",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-simple-animate": "3.5.2"
   },
   "peerDependencies": {
-    "@chakra-ui/system": "2.2.2"
+    "@chakra-ui/system": "2.6.0"
   },
   "devDependencies": {
-    "@babel/core": "7.21.4",
-    "@chakra-ui/react": "2.5.5",
-    "@emotion/react": "11.10.6",
-    "@emotion/styled": "11.10.6",
-    "@types/node": "18.15.11",
-    "@types/react": "18.0.33",
-    "@types/react-dom": "18.0.11",
+    "@babel/core": "7.16.12",
+    "@chakra-ui/react": "2.8.0",
+    "@emotion/react": "11.11.1",
+    "@emotion/styled": "11.11.0",
+    "@types/node": "20.4.5",
+    "@types/react": "18.2.18",
+    "@types/react-dom": "18.2.7",
     "eslint": "8.38.0",
     "eslint-config-next": "13.3.0",
     "framer-motion": "6.5.1",

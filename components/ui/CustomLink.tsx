@@ -1,3 +1,4 @@
+'use client';
 import { Link } from '@chakra-ui/react';
 
 const CustomLink = ({children, href, ...props}: { children: any; href: string; }) => {
