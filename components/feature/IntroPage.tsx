@@ -4,7 +4,7 @@ import { INTRO } from '../../state/constants';
 
 
 const IntroPage = ({intro}: {intro?: IntroContextType}) => {
-  const introData = intro ? intro : INTRO
+  const introData = intro ? intro : INTRO as IntroContextType
   return (
     <IntroUI {...introData} />
   )
