@@ -37,7 +37,7 @@ export default function RootLayout(
       async
       defer
       data-website-id="653a53a5-23d1-49e2-a8cf-669aad362b03"
-      src={`https://stats.techtim42.com/umami.js`}
+      src={`https://stats.techtim42.com/script.js`}
     />
     </body>
     </html>
