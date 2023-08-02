@@ -26,9 +26,6 @@ dependencies:
   react-dom:
     specifier: 18.2.0
     version: 18.2.0(react@18.2.0)
-  react-simple-animate:
-    specifier: 3.5.2
-    version: 3.5.2(react-dom@18.2.0)
 
 devDependencies:
   '@babel/core':
@@ -3580,14 +3577,6 @@ packages:
       tslib: 2.5.0
       use-callback-ref: 1.3.0(@types/react@18.2.18)(react@18.2.0)
       use-sidecar: 1.1.2(@types/react@18.2.18)(react@18.2.0)
-
-  /react-simple-animate@3.5.2(react-dom@18.2.0):
-    resolution: {integrity: sha512-xLE65euP920QMTOmv5haPlml+hmOPDkbIr5WeF7ADIXWBYt5kW/vwpNfWg8EKMab8aeDxIZ6QjffVh8v2dUyhg==}
-    peerDependencies:
-      react-dom: ^16.8.0 || ^17 || ^18
-    dependencies:
-      react-dom: 18.2.0(react@18.2.0)
-    dev: false
 
   /react-style-singleton@2.2.1(@types/react@18.2.18)(react@18.2.0):
     resolution: {integrity: sha512-ZWj0fHEMyWkHzKYUr2Bs/4zU6XLmq9HsgBURm7g5pAVfyn49DgUiNgY2d4lXRlYSiCif9YBGpQleewkcqddc7g==}
