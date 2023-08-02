@@ -3,6 +3,11 @@ import { SITE_URL } from '../utils/configs';
 import { Metadata } from 'next'
 import IntroPage from '../components/feature/IntroPage';
 
+import { httpRequest, promisedHTTPsRequest } from '../utils/utils';
+import { INTRO } from '../state/constants';
+import { IntroContextType } from '../state/SiteContext';
+
+
 export const metadata: Metadata = {
   title: 'Tech Tim (@TechTim42) - Learn, Share and Grow',
   alternates: {
@@ -11,37 +16,47 @@ export const metadata: Metadata = {
   description: "Learn, Share and Grow ❤️ -- Software Engineer | AWS Professional | Open Source Lover  --☘️ Be more productive, Better in communicating, Contribute more to community.",
 }
 
-async function getIntro() {
+export const revalidate: number = 604800000;
+
+
+async function getIntro(): Promise<{ attributes: IntroContextType }> {
   const url = process?.env?.CMS_URL || 'http://localhost:1337'
 
+  const endpointPath = `/api/intro-contexts/1?populate=socials,sections`;
+  const token = process.env.CMS_API_TOKEN
 
-  const res = await fetch(
-    `${url}/api/intro-contexts/1?populate=socials,sections`,
-    {
-      next: { revalidate: 1000*60*60*24*7 }, // revalidating data every week // with this it is incremetal static regeneration
-      method: "GET",
-      headers: {
-        "Authorization": `Bearer ${process?.env?.CMS_API_TOKEN}`,
-        "Content-Type": "application/json",
-        'Host': SITE_URL,
-      }
-    }
-  )
-
-
-  if (res.status !== 200) {
-    console.error('Failed to fetch intro', res.status, res.statusText)
-    return
+  if (!token) {
+    console.error('CMS_API_TOKEN is not set')
+    throw new Error('CMS_API_TOKEN is not set')
   }
 
-  const data = (await res.json()).data
-  return data.attributes
+  if (url.startsWith('http://')) {
+    // go with fetch
+    try {
+      const resp = await httpRequest(url, endpointPath, token)
+      return resp.data
+    } catch (e) {
+      console.error('fall back to hard coded data', e)
+      return {attributes: INTRO}
+    }
+
+  } else {
+    // go with https request
+    const resp = await promisedHTTPsRequest(url, endpointPath, token)
+    if (resp.error) {
+      console.error('fall back to hard coded data', resp.error)
+      return {attributes: INTRO}
+    }
+    return resp.data
+  }
+
 }
 
 
 const Home = async () => {
-
-  const intro = await getIntro()
+  const data = await getIntro();
+  const intro = (await getIntro()).attributes
+  // console.debug(JSON.stringify(intro))
   return (
     <IntroPage intro={intro}/>
   )
