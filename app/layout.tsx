@@ -34,6 +34,7 @@ export default function RootLayout(
         src="https://log.techtim42.com/script.js"
         data-ackee-server="https://log.techtim42.com"
         data-ackee-domain-id="ed7573d3-7fd2-444d-a3d1-de40fdff7fe3"
+        data-ackee-opts='{ "ignoreLocalhost": true, "detailed": true }'
       />
     </head>
     <body>
