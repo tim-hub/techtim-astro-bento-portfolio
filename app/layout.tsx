@@ -26,20 +26,22 @@ export default function RootLayout(
   }) {
   return (
     <html lang='en'>
+    <head>
+      <Script
+        strategy={'afterInteractive'}
+        async
+        defer
+        src="https://log.techtim42.com/script.js"
+        data-ackee-server="https://log.techtim42.com"
+        data-ackee-domain-id="ed7573d3-7fd2-444d-a3d1-de40fdff7fe3"
+      />
+    </head>
     <body>
     {/* 👇 Here's the script */}
 
     <Provider>
       {children}
     </Provider>
-    <Script
-      strategy={'afterInteractive'}
-      async
-      defer
-      src="https://log.techtim42.com/script.js"
-      data-ackee-server="https://log.techtim42.com"
-      data-ackee-domain-id="ed7573d3-7fd2-444d-a3d1-de40fdff7fe3"
-    />
     </body>
     </html>
   )
