@@ -36,8 +36,9 @@ export default function RootLayout(
       strategy={'afterInteractive'}
       async
       defer
-      data-website-id="653a53a5-23d1-49e2-a8cf-669aad362b03"
-      src={`https://stats.techtim42.com/script.js`}
+      src="https://log.techtim42.com/script.js"
+      data-ackee-server="https://log.techtim42.com"
+      data-ackee-domain-id="ed7573d3-7fd2-444d-a3d1-de40fdff7fe3"
     />
     </body>
     </html>
