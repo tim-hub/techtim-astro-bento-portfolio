@@ -23,7 +23,7 @@
   "license": "private",
   "dependencies": {
     "@chakra-ui/next-js": "2.1.5",
-    "@fontsource/open-sans": "4.5.14",
+    "@fontsource/open-sans": "5.0.11",
     "@fontsource/raleway": "4.5.12",
     "next": "13.4.12",
     "react": "18.2.0",

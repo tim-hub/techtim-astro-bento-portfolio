@@ -12,8 +12,8 @@ dependencies:
     specifier: 2.6.0
     version: 2.6.0(@emotion/react@11.11.1)(@emotion/styled@11.11.0)(react@18.2.0)
   '@fontsource/open-sans':
-    specifier: 4.5.14
-    version: 4.5.14
+    specifier: 5.0.11
+    version: 5.0.11
   '@fontsource/raleway':
     specifier: 4.5.12
     version: 4.5.12
@@ -1422,8 +1422,8 @@ packages:
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
     dev: true
 
-  /@fontsource/open-sans@4.5.14:
-    resolution: {integrity: sha512-mBXIIETBlW8q/ocuUN0hyGow2iuf75hQEHQt8R/RJ/HcphVbLg8KB7pHYGbFGDqs75W+SWvTC7JkVeAjT65BuQ==}
+  /@fontsource/open-sans@5.0.11:
+    resolution: {integrity: sha512-H3asfQirkh9avht/qxeMFDhAxBzLi9qH0rQAAVv5TxmZL9vvmZc0e70Z6gXPem6BB1+gUsT9QSqgGqH60rpuuA==}
     dev: false
 
   /@fontsource/raleway@4.5.12:
