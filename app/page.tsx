@@ -18,7 +18,9 @@ export const metadata: Metadata = {
 
 export const revalidate: number = 604800000;
 
-
+/**
+ * Get Intro from CMS
+ */
 async function getIntro(): Promise<{ attributes: IntroContextType }> {
   const url = process?.env?.CMS_URL || 'http://localhost:1337'
 
@@ -53,6 +55,10 @@ async function getIntro(): Promise<{ attributes: IntroContextType }> {
 }
 
 
+/**
+ * Home / Index Page
+ * @constructor
+ */
 const Home = async () => {
   const data = await getIntro();
   const intro = (await getIntro()).attributes

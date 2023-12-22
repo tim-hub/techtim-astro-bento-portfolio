@@ -1,6 +1,10 @@
 import { SITE_NAME } from '../utils/configs';
 import { IntroContextType } from './SiteContext';
 
+/**
+ * Intro context
+ * Fall back to default intro if there is no data from API
+ */
 export const INTRO: IntroContextType = {
   avatarUrl: '/techtim42.png',
   title: SITE_NAME,
