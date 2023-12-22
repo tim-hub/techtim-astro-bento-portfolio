@@ -97,7 +97,7 @@ export const Intro = (
                   <CustomLink href={social.url} key={social.label}>
                     <Tooltip hasArrow label={social.label}>
                       <IconButton size="lg" colorScheme={social?.colorSchema ?? 'gray'} aria-label={social.label}
-                                  icon={getIcon(social.label)}>
+                                  icon={getIcon(social?.icon ?? social.label )}>
                         {social.label}
                       </IconButton>
                     </Tooltip>
