@@ -26,7 +26,8 @@ import CustomLink from './CustomLink';
 import { getIcon } from '../../state/ComponentUtils';
 import { SITE_NAME } from '../../utils/configs';
 
-export interface IIntroProps extends IntroContextType {}
+export interface IIntroProps extends IntroContextType {
+}
 
 export const Intro = (
   {
@@ -51,7 +52,7 @@ export const Intro = (
 
       <List spacing={3} textAlign={'center'}>
         <ListItem>
-          <ListIcon as={FaCheckCircle} color='green.500'/>
+          <ListIcon as={FaCheckCircle as any} color='green.500'/>
           {intro}
         </ListItem>
       </List>
@@ -91,11 +92,11 @@ export const Intro = (
         socials?.map((_, index) => {
           return <Flex key={index}> <HStack>
             {
-              socials[index].length && socials[index].map(
+              (socials && socials[index].length) && socials[index].map(
                 (social) => (
                   <CustomLink href={social.url} key={social.label}>
                     <Tooltip hasArrow label={social.label}>
-                      <IconButton size="lg" colorScheme={social.colorSchema} aria-label={social.label}
+                      <IconButton size="lg" colorScheme={social?.colorSchema ?? 'gray'} aria-label={social.label}
                                   icon={getIcon(social.label)}>
                         {social.label}
                       </IconButton>

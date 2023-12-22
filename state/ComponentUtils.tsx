@@ -5,14 +5,12 @@ import {
   FaMediumM,
   FaReadme,
   FaStackOverflow,
-  FaTwitter,
+  FaTwitterSquare,
   FaYoutube,
-  FaChalkboard,
-  FaChrome
 } from 'react-icons/fa';
 
-export const getIcon = (icon: string): React.ReactElement => {
-  switch (icon) {
+export const getIcon = (siteNameOrSiteFavicon: string): React.ReactElement => {
+  switch (siteNameOrSiteFavicon) {
     case 'Dev':
       return <FaDev/>
     case 'Github':
@@ -26,12 +24,12 @@ export const getIcon = (icon: string): React.ReactElement => {
     case 'StackOverflow':
       return <FaStackOverflow/>
     case 'Twitter':
-      return <FaTwitter/>
+      return <FaTwitterSquare/>
     case 'Youtube':
       return <FaYoutube/>
     case 'Antioch Tech':
-      return <FaChalkboard/>
+      return <img src={'https://antioch.tech/favicon.ico'}></img>
     default:
-      return <FaChrome/>
+      return <img src={siteNameOrSiteFavicon}></img>
   }
 }
