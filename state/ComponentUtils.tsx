@@ -8,6 +8,19 @@ import {
   FaTwitterSquare,
   FaYoutube,
 } from 'react-icons/fa';
+import { Image, ImageProps } from '@chakra-ui/react'
+
+const IconImage = ({
+                     src,
+                     maxWidth,
+                     minWidth,
+                     minHeight,
+                     maxHeight
+                   }: ImageProps & { src: string }) => (
+  <Image src={src ?? 'https://via.placeholder.com/48'} maxHeight={maxHeight ?? '48px'} maxWidth={maxWidth ?? '48px'}
+         minHeight={minHeight ?? '18px'}
+         minWidth={minWidth ?? '18px'}/>
+)
 
 export const getIcon = (siteNameOrSiteFavicon: string): React.ReactElement => {
   switch (siteNameOrSiteFavicon) {
@@ -28,8 +41,9 @@ export const getIcon = (siteNameOrSiteFavicon: string): React.ReactElement => {
     case 'Youtube':
       return <FaYoutube/>
     case 'Antioch Tech':
-      return <img src={'https://antioch.tech/favicon.ico'}></img>
+      return <IconImage src={'https://antioch.tech/favicon.ico'} alt={'Antioch Tech logo'}/>
     default:
-      return <img src={siteNameOrSiteFavicon}></img>
+      return <IconImage src={siteNameOrSiteFavicon} maxHeight={'48px'} maxWidth={'48px'} minHeight={'18px'}
+                        minWidth={'18px'} alt={siteNameOrSiteFavicon}/>
   }
 }
