@@ -19,7 +19,9 @@ interface Project {
   }
 }
 
-const entries = await contentfulClient.getEntries<Project>({})
+const entries = {
+  items: []
+}
 ---
 
 <BaseLayout

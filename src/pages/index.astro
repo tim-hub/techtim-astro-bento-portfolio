@@ -10,32 +10,8 @@ import CVCard from '../components/sections/CVCard.astro'
 import ExperienceCard from '../components/sections/ExperienceCard.astro'
 import TattooCard from '../components/sections/TattooCard.astro'
 import StudyCard from '../components/sections/StudyCard.astro'
-//
-import { motion, AnimatePresence } from 'framer-motion'
 ---
 
-<script>
-  import { stagger, spring, timeline, type TimelineDefinition } from 'motion'
-  import { loaderAnimation } from '../lib/constants'
-
-  const cards = document.querySelectorAll('.card-animate')
-
-  const sequence = [
-    loaderAnimation,
-    [
-      cards,
-      { y: ['40%', '0%'], opacity: [0, 1] },
-      {
-        at: '-0.1',
-        duration: 0.4,
-        delay: stagger(0.3),
-        easing: spring({ velocity: 100, stiffness: 50, damping: 10 }),
-      },
-    ],
-  ]
-
-  timeline(sequence as TimelineDefinition)
-</script>
 
 <BaseLayout
   title="Andrés Plaza - Full Stack Developer"
@@ -47,7 +23,7 @@ import { motion, AnimatePresence } from 'framer-motion'
   >
   </div>
   <main
-    class="relative m-auto grid w-full max-w-6xl gap-2 overflow-hidden p-2 sm:gap-2 sm:p-4 md:grid-cols-2 md:gap-3 md:p-6 lg:grid-cols-4 lg:grid-rows-8 lg:gap-4"
+    class="relative m-auto w-full max-w-6xl gap-2 overflow-hidden p-2 sm:gap-2 sm:p-4 md:grid-cols-2 md:gap-3 md:p-6 lg:grid-cols-4 lg:grid-rows-8 lg:gap-4 grid"
   >
     <IntroCard />
     <AboutMe />
@@ -57,7 +33,7 @@ import { motion, AnimatePresence } from 'framer-motion'
       colSpan="md:col-span-1"
       rowSpan="md:row-span-2"
       title="Portfolio & Projects"
-      href="/portfolio"
+      href="/project"
     />
     <TimeZoneCard />
     <ContactsCard />
@@ -83,3 +59,28 @@ import { motion, AnimatePresence } from 'framer-motion'
     </Card> -->
   </main>
 </BaseLayout>
+
+
+
+<script>
+  import { stagger, spring, timeline, type TimelineDefinition } from 'motion'
+  import { loaderAnimation } from '../lib/constants'
+
+  const cards = document.querySelectorAll('.card-animate')
+
+  const sequence = [
+    loaderAnimation,
+    [
+      cards,
+      { y: ['40%', '0%'], opacity: [0, 1] },
+      {
+        at: '-0.1',
+        duration: 0.4,
+        delay: stagger(0.3),
+        easing: spring({ velocity: 100, stiffness: 50, damping: 10 }),
+      },
+    ],
+  ]
+
+  timeline(sequence as TimelineDefinition)
+</script>

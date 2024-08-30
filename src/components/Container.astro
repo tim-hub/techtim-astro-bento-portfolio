@@ -1,5 +1,5 @@
 ---
-import { cn } from '../lib/utils'
+import { mergeClassNamesSafely } from '../lib/utils'
 
 type Props = {
   size: 'sm' | 'md' | 'lg' | 'xl' | '2xl'
@@ -9,7 +9,7 @@ const { size } = Astro.props
 ---
 
 <div
-  class={cn(
+  class={mergeClassNamesSafely(
     'w-full h-full mx-auto px-5',
     size === 'sm' && 'max-w-screen-sm',
     size === 'md' && 'max-w-screen-md',
