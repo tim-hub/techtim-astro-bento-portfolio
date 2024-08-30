@@ -7,7 +7,7 @@ export const loaderAnimation = [
 ]
 
 export const LINKS = {
-  github: 'https://github.com/bue221',
+  github: 'https://github.com/tim-hub',
   linkedin: 'https://www.linkedin.com/in/bue221/',
   mail: 'mailto:camiloplaza3@gmail.com',
   instagram: 'https://www.instagram.com/caj_ink/',
@@ -17,10 +17,10 @@ export const LINKS = {
 
 // Global
 export const SITE: Site = {
-  TITLE: 'Astro Sphere',
+  TITLE: 'Tech Tim',
   DESCRIPTION:
     'Welcome to Astro Sphere, a portfolio and blog for designers and developers.',
-  AUTHOR: 'Mark Horn',
+  AUTHOR: 'Tim',
 }
 
 // Work Page
