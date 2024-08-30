@@ -1,0 +1,45 @@
+---
+import { WORK } from '../lib/constants'
+import BaseLayout from '../layouts/BaseLayout.astro'
+import TopLayout from '../layouts/TopLayout.astro'
+import BottomLayout from '../layouts/BottomLayout.astro'
+
+import { EXPERIENCE } from '../lib/constants'
+---
+
+<BaseLayout title={WORK.TITLE} description={WORK.DESCRIPTION}>
+  <main class="flex min-h-[80vh] flex-auto flex-col" transition:animate="fade">
+    <TopLayout>
+      <h2
+        class="scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight first:mt-0"
+      >
+        {WORK.TITLE}
+      </h2>
+    </TopLayout>
+    <BottomLayout>
+      <ul>
+        {
+          EXPERIENCE.map((entry) => (
+            <li class="animate mt-4 border-b border-black/10 py-8 first-of-type:mt-0 first-of-type:pt-0 last-of-type:border-none dark:border-white/25">
+              <div class="mb-4 text-sm uppercase">
+                {entry.start} - {entry.end}
+              </div>
+              <a
+                href={entry.link ?? ''}
+                class={`font-semibold ${entry?.link ? 'text-primary' : 'text-foreground'}`}
+              >
+                {entry.company}
+              </a>
+              <div class="text-sm font-semibold">{entry.position}</div>
+              <article class="prose dark:prose-invert">
+                {entry.tasks.map((i) => (
+                  <>{i}</>
+                ))}
+              </article>
+            </li>
+          ))
+        }
+      </ul>
+    </BottomLayout>
+  </main>
+</BaseLayout>
