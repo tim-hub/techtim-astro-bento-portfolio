@@ -1,8 +1,9 @@
 ---
-import Card from '../Card.astro'
 import TimeZoneV2 from '../../react/TimeZoneCardV2'
+
+const {timezone = Intl.DateTimeFormat().resolvedOptions().timeZone} = Astro.props
 ---
 
-<Card colSpan="lg:col-span-2" rowSpan="md:row-span-2" title="Time zone">
-  <TimeZoneV2 timezone="America/Bogota" client:load/>
-</Card>
+
+<TimeZoneV2 timezone={timezone} client:load/>
+
