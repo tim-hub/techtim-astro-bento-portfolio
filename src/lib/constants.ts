@@ -61,34 +61,25 @@ export const SEARCH: Page = {
 export const STUDIES = [
   {
     title: 'Master of Applied Computing',
-    institution: '',
-    link: '',
-    date: '',
+    level: 'Master',
   },
   {
-    title: 'Diploma of Computing',
-    institution: '',
-    link: '',
-    date: '',
+    title: 'AWS Cloud Professional',
+    institution: 'AWS',
   },
-  {
-    title: 'Bachelor of Engineering',
-    institution: '',
-    link: '',
-    date: '',
+    {
+    title: 'Neo4j Certified Professional',
+    institution: 'Neo4j',
   },
-  {
-    title: 'Coursera',
-    institution: 'Youtube',
-    link: 'https://www.youtube.com/@midulive',
-    date: '2018 - 2022',
+      {
+    title: 'ICAgile Certified Professional',
+    institution: 'ICP',
   },
-  {
-    title: 'edx',
-    institution: 'Tattoo Academy',
-    link: 'https://www.instagram.com/tattoodcacademy/',
-    date: '2024 - 2025',
+   {
+    title: 'Full Stack Observability Practitioner',
+    institution: 'New Relic',
   },
+
 ]
 
 export const EXPERIENCE = [

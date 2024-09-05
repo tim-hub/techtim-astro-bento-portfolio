@@ -4,7 +4,7 @@ import IntroCard from '../components/sections/IntroCard.astro'
 import AboutMe from '../components/sections/AboutMe.astro'
 import Card from '../components/Card.astro'
 import TimeZoneCard from '../components/sections/TimeZoneCard.astro'
-import ContactsCard from '../components/sections/ContactsCard.astro'
+import Books from '../components/sections/Books.astro'
 import Now from '../components/sections/Now.astro'
 import CVCard from '../components/sections/CVCard.astro'
 import ExperienceCard from '../components/sections/ExperienceCard.astro'
@@ -25,28 +25,28 @@ import { LINKS, SITE, WORDS } from "../lib/constants";
   >
   </div>
   <main
-    class="relative m-auto grid w-full max-w-6xl gap-2 overflow-hidden p-2 sm:gap-2 sm:p-4 md:grid-cols-2 md:gap-3 md:p-6  lg:grid-cols-4 lg:gap-4"
+    class="relative m-auto grid w-full max-w-6xl gap-2 overflow-hidden p-2 sm:gap-2 sm:p-4 md:grid-cols-2 md:gap-3 md:p-6 lg:grid-cols-12 lg:gap-4"
   >
-    <Card colSpan="md:col-span-3" rowSpan="md:row-span-3">
+    <Card colSpan="lg:col-span-9  md:col-span-2" rowSpan="md:row-span-1 lg:row-span-4">
       <IntroCard/>
     </Card>
-    <Card colSpan="md:col-span-1" rowSpan="md:row-span-5" title="About me">
+    <Card colSpan="lg:col-span-3 md:col-span-1" rowSpan="md:row-span-3 lg:row-span-6" title="About me">
       <AboutMe/>
     </Card>
 
-    <Card colSpan="md:col-span-1" rowSpan="md:row-span-4" title="Projects">
+    <Card colSpan="lg:col-span-3 md:col-span-1" rowSpan="md:row-span-3 lg:row-span-4" title="Projects">
       <Projects/>
     </Card>
 
-    <Card colSpan="md:col-span-1" rowSpan="md:row-span-2" title="Your time">
+    <Card colSpan="lg:col-span-3 md:col-span-1" rowSpan="md:row-span-1 lg:row-span-2" title="Your time">
       <TimeZoneCard/>
     </Card>
-    <Card colSpan="md:col-span-1" rowSpan="md:row-span-2" title="My time">
+    <Card colSpan="lg:col-span-3 md:col-span-1" rowSpan="md:row-span-1 lg:row-span-2" title="My time">
       <TimeZoneCard timezone="Pacific/Auckland "/>
     </Card>
 
 
-    <Card colSpan="lg:col-span-2" rowSpan="md:row-span-2">
+    <Card colSpan="lg:col-span-4 md:col-span-1" rowSpan="md:row-span-1 lg:row-span-2">
       <div class="flex h-full flex-col justify-between">
         <blockquote class="mt-6 border-l-2 pl-6 italic">
           “{WORDS[0]}”
@@ -54,33 +54,24 @@ import { LINKS, SITE, WORDS } from "../lib/constants";
         <p class="mt-2 text-xs"></p>
       </div>
     </Card>
-    <Card colSpan="md:col-span-1" rowSpan="md:row-span-1" title="Study">
+    <Card colSpan="md:col-span-1 lg:col-span-5" rowSpan="md:row-span-2 lg:row-span-2"
+          title="Education and Certificates">
       <StudyCard/>
     </Card>
-    <Card colSpan="md:col-span-1" rowSpan="md:row-span-4">
-      <ContactsCard/>
-    </Card>
-    <Card colSpan="md:col-span-1" rowSpan="md:row-span-2" title="Experience">
+
+    <Card colSpan="md:col-span-1 lg:col-span-3" rowSpan="md:row-span-2 lg:row-span-2" title="Experience">
       <ExperienceCard/>
     </Card>
-    <Card colSpan="md:col-span-1" rowSpan="md:row-span-1">
-      <div class="flex h-full flex-col justify-between">
-        <blockquote class="mt-6 border-l-2 pl-6 italic">
-          “Anything one man can imagine, other men can make real.”
-        </blockquote>
-        <p class="mt-2 text-xs">- Jules Verne</p>
-      </div>
+
+    <Card colSpan="md:col-span-1 lg:col-span-3" rowSpan="md:row-span-2 lg:row-span-2" title="Books I read">
+      <Books/>
     </Card>
-    <Card
-      colSpan="md:col-span-1"
-      rowSpan="md:row-span-2"
-      title="tattoo"
-    >
-      <TattooCard/>
-    </Card>
-    <Card colSpan="md:col-span-1" rowSpan="md:row-span-1" title="Study">
-      <StudyCard/>
-    </Card>
+
+        <Card colSpan="md:col-span-2 lg:col-span-6" rowSpan="md:row-span-2 lg:row-span-2" title="Chat with my AI bot">
+
+        </Card>
+
+
   </main>
 </BaseLayout>
 
