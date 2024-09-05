@@ -26,6 +26,14 @@ import { SITE } from "../lib/constants";
           Blog
         </a>
         <a
+          href="/projects"
+          target="_blank"
+          rel="noreferrer"
+          class={buttonVariants({variant: 'ghost'})}
+        >
+          Projects
+        </a>
+        <a
           href="https://github.com/bue221"
           target="_blank"
           rel="noreferrer"
@@ -34,7 +42,7 @@ import { SITE } from "../lib/constants";
           GitHub
         </a>
 
-        <ModeToggle transition:persist client:load />
+        <ModeToggle transition:persist client:load/>
       </nav>
     </div>
   </div>

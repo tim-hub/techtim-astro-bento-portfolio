@@ -17,6 +17,10 @@ export const LINKS = {
   devto: 'https://dev.to/timhub',
 }
 
+export const WORDS = [
+  'As each one has received a gift, minister it to one another'
+]
+
 // Global
 export const SITE: Site = {
   TITLE: 'Tech Tim',

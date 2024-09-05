@@ -11,7 +11,7 @@ import ExperienceCard from '../components/sections/ExperienceCard.astro'
 import Projects from '../components/sections/Projects.astro'
 import TattooCard from '../components/sections/TattooCard.astro'
 import StudyCard from '../components/sections/StudyCard.astro'
-import { LINKS, SITE } from "../lib/constants";
+import { LINKS, SITE, WORDS } from "../lib/constants";
 ---
 
 
@@ -42,12 +42,20 @@ import { LINKS, SITE } from "../lib/constants";
       <TimeZoneCard/>
     </Card>
     <Card colSpan="md:col-span-1" rowSpan="md:row-span-2" title="My time">
-      <TimeZoneCard timezone="Auckland/Pacific"/>
+      <TimeZoneCard timezone="Pacific/Auckland "/>
     </Card>
 
 
-    <Card colSpan="lg:col-span-2" rowSpan="md:row-span-2" title="Time zone">
-      <TimeZoneCard/>
+    <Card colSpan="lg:col-span-2" rowSpan="md:row-span-2">
+      <div class="flex h-full flex-col justify-between">
+        <blockquote class="mt-6 border-l-2 pl-6 italic">
+          “{WORDS[0]}”
+        </blockquote>
+        <p class="mt-2 text-xs"></p>
+      </div>
+    </Card>
+    <Card colSpan="md:col-span-1" rowSpan="md:row-span-1" title="Study">
+      <StudyCard/>
     </Card>
     <Card colSpan="md:col-span-1" rowSpan="md:row-span-4">
       <ContactsCard/>
@@ -67,7 +75,6 @@ import { LINKS, SITE } from "../lib/constants";
       colSpan="md:col-span-1"
       rowSpan="md:row-span-2"
       title="tattoo"
-
     >
       <TattooCard/>
     </Card>
