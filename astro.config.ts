@@ -3,14 +3,15 @@ import react from '@astrojs/react'
 import tailwind from '@astrojs/tailwind'
 import mdx from '@astrojs/mdx';
 
+
 // https://astro.build/config
 export default defineConfig({
   site: 'http://localhost:4321',
   integrations: [
     react(),
-    mdx(),
     tailwind({
       applyBaseStyles: false,
     }),
+    mdx(),
   ],
 })

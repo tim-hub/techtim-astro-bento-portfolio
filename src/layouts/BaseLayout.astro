@@ -10,11 +10,12 @@ interface Props {
   ogImage?: URL | undefined
 }
 
-const { title, description, ogImage } = Astro.props
+const { title, description, ogImage, url } = Astro.props
 ---
 
 <html lang="en">
   <head>
+    <link rel="canonical" href={new URL(url, Astro.site).pathname}>
     <HeadSEO title={title} description={description} ogImage={ogImage} />
     <ViewTransitions />
   </head>
