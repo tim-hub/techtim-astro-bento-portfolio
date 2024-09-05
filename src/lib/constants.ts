@@ -8,11 +8,13 @@ export const loaderAnimation = [
 
 export const LINKS = {
   github: 'https://github.com/tim-hub',
-  linkedin: 'https://www.linkedin.com/in/bue221/',
-  mail: 'mailto:camiloplaza3@gmail.com',
-  instagram: 'https://www.instagram.com/caj_ink/',
-  medium: 'https://ladvace.medium.com/',
-  discord: 'https://discordapp.com/users/163300027618295808',
+  medium: 'https://medium.com/@TechTim42',
+  twitter: 'https://twitter.com/TechTim42',
+  thread: 'https://www.threads.net/@techtim2024',
+  mastodon: 'https://mastodon.social/@techtim42',
+  youtube: 'https://www.youtube.com/@techtim42',
+  stackoverflow: 'https://stackoverflow.com/users/5249708/tim',
+  devto: 'https://dev.to/timhub',
 }
 
 // Global
@@ -21,6 +23,10 @@ export const SITE: Site = {
   DESCRIPTION:
     'Welcome to Astro Sphere, a portfolio and blog for designers and developers.',
   AUTHOR: 'Tim',
+  SEO: {
+    title: 'Tech Tim (@TechTim42) - Learn, Share and Grow ❤️',
+    description: 'Learn, Share and Grow ❤️ -- Software Engineer | AWS Professional | Open Source Lover  --☘️ Be more productive, Better in communicating, Contribute more to community. | Tech Tim\'s New Astro Portfolio'
+  }
 }
 
 // Work Page

@@ -11,13 +11,13 @@ import ExperienceCard from '../components/sections/ExperienceCard.astro'
 import Projects from '../components/sections/Projects.astro'
 import TattooCard from '../components/sections/TattooCard.astro'
 import StudyCard from '../components/sections/StudyCard.astro'
-import { LINKS } from "../lib/constants";
+import { LINKS, SITE } from "../lib/constants";
 ---
 
 
 <BaseLayout
-  title="Tech Tim (@TechTim42) - Learn, Share and Grow ❤️"
-  description="Learn, Share and Grow ❤️ -- Software Engineer | AWS Professional | Open Source Lover  --☘️ Be more productive, Better in communicating, Contribute more to community. | Tech Tim's New Astro Portfolio"
+  title={SITE.SEO.title}
+  description={SITE.SEO.description}
 >
   <div
     slot="loader"
@@ -34,22 +34,9 @@ import { LINKS } from "../lib/constants";
       <AboutMe/>
     </Card>
 
-    <!--    &lt;!&ndash;project&ndash;&gt;-->
-    <!--<Card-->
-    <!--  colSpan="md:col-span-1"-->
-    <!--  rowSpan="md:row-span-4"-->
-    <!--  title="Projects"-->
-    <!--  href="/project"-->
-    <!--/>-->
-
     <Card colSpan="md:col-span-1" rowSpan="md:row-span-4" title="Projects">
       <Projects/>
     </Card>
-
-    <!--<Card colSpan="md:col-span-1" rowSpan="md:row-span-4" title="CV">-->
-    <!--  <CVCard/>-->
-    <!--</Card>-->
-
 
     <Card colSpan="md:col-span-1" rowSpan="md:row-span-2" title="Your time">
       <TimeZoneCard/>

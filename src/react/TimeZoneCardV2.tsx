@@ -15,7 +15,7 @@ const Timezone = ({timezone}: any) => {
 
   if (dateTime) {
     return (
-      <div className={"p-1"}>
+      <div>
         <p>{dateTime.toDateString()}</p>
         <p className={'text-2xl my-2'}>{dateTime.toLocaleTimeString()}</p>
         <p className="text-sm text-gray-500">{timezone}</p>

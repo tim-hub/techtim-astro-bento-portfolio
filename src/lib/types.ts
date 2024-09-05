@@ -5,6 +5,10 @@ export type Page = {
 
 export interface Site extends Page {
   AUTHOR: string
+  SEO: {
+    title: string
+    description: string
+  }
 }
 
 export type Links = {
