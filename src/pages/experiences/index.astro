@@ -1,0 +1,55 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from 'src/layouts/BaseLayout.astro'
+import TopLayout from 'src/layouts/TopLayout.astro'
+import BottomLayout from 'src/layouts/BottomLayout.astro'
+import { formateLocalDate } from "../../lib/utils";
+import { Badge } from "../../components/ui/badge";
+
+const experiences = await getCollection('experiences');
+
+experiences.sort((a, b) => {
+  return new Date(b.data.startDate) - new Date(a.data.startDate);
+});
+---
+
+<BaseLayout title={'Experiences'}
+            description={'Places I have worked in, this is just a rough timeline, not include all details.'}>
+  <main class="flex min-h-[80vh] flex-auto flex-col" transition:animate="fade">
+    <TopLayout>
+      <h2
+        class="scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight first:mt-0"
+      >
+        Experiences
+      </h2>
+    </TopLayout>
+    <BottomLayout>
+      <ul>
+        {
+          experiences.map((entry) => (
+            <li
+              class="animate mt-4 border-b border-black/10 py-8 first-of-type:mt-0 first-of-type:pt-0 last-of-type:border-none dark:border-white/25">
+              <div class="mb-4 text-sm uppercase">
+                {formateLocalDate(entry.data.startDate)} - {formateLocalDate(entry.data.endDate)}
+              </div>
+              <a
+                href={'/experiences/' + entry.data.slug ?? ''}
+                class={`font-semibold ${entry?.data?.slug ? 'text-primary' : 'text-foreground'}`}
+              >
+                {entry.data.title}
+              </a>
+              <div class="text-sm my-2">{entry.data.company}</div>
+              <article class="flex gap-2">
+                {entry.data.tags.map((i) => (
+                  <a href={`tags/${i}`}>
+                    <Badge class="mx-2">{i} </Badge>
+                  </a>
+                ))}
+              </article>
+            </li>
+          ))
+        }
+      </ul>
+    </BottomLayout>
+  </main>
+</BaseLayout>
