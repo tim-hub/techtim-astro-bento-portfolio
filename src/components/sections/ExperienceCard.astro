@@ -1,7 +1,17 @@
+
 ---
+import { getCollection } from "astro:content";
 import Card from '../Card.astro'
 import { Button } from '../ui/button'
-import { EXPERIENCE } from '../../lib/constants'
+import { formateLocalDate } from "../../lib/utils";
+
+const EXPERIENCE = await getCollection('experiences');
+
+// sort projects by dateStart DESC
+EXPERIENCE.sort((a: any, b: any) => {
+  return new Date(b.data.startDate) - new Date(a.data.startDate);
+});
+
 ---
 
 
@@ -9,12 +19,13 @@ import { EXPERIENCE } from '../../lib/constants'
   {
     EXPERIENCE.slice(0, 3).map((exp) => (
       <div>
-        <h3 class="text-lg font-semibold">{exp.position}</h3>
-        <a class="text-sm text-primary" href={exp?.link ?? ''}>
-          {exp.company}
+        <h4 class="text-md font-medium">{exp.data.title}</h4>
+        <a class="text-sm text-primary" href={exp?.slug ?? ''}>
+          {exp.data.company}
         </a>
         <p class="text-sm text-gray-600">
-          {exp.start} - {exp.end}
+         {formateLocalDate(exp.data.startDate)} {exp.data?.endDate ? '- ' + formateLocalDate(exp.data.endDate) : ''}
+
         </p>
       </div>
     ))

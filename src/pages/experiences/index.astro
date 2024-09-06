@@ -29,16 +29,20 @@ experiences.sort((a, b) => {
           experiences.map((entry) => (
             <li
               class="animate mt-4 border-b border-black/10 py-8 first-of-type:mt-0 first-of-type:pt-0 last-of-type:border-none dark:border-white/25">
-              <div class="mb-4 text-sm uppercase">
-                {formateLocalDate(entry.data.startDate)} - {formateLocalDate(entry.data.endDate)}
-              </div>
+
               <a
-                href={'/experiences/' + entry.data.slug ?? ''}
-                class={`font-semibold ${entry?.data?.slug ? 'text-primary' : 'text-foreground'}`}
+                href={'/experiences/' + entry.slug ?? ''}
+                class={`font-semibold ${entry?.slug ? 'text-primary' : 'text-foreground'}`}
               >
                 {entry.data.title}
               </a>
+              <div class="mb-4 text-sm">
+                {formateLocalDate(entry.data.startDate)} - {formateLocalDate(entry.data.endDate)}
+              </div>
+
               <div class="text-sm my-2">{entry.data.company}</div>
+
+
               <article class="flex gap-2">
                 {entry.data.tags.map((i) => (
                   <a href={`tags/${i}`}>
