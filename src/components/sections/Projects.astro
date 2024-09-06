@@ -1,27 +1,37 @@
 ---
 import Card from '../Card.astro'
 import { Button } from '../ui/button'
-import { EXPERIENCE } from '../../lib/constants'
 
 
+
+const projects = await Astro.glob('src/pages/projects/*.mdx');
+
+// sort projects by dateStart DESC
+projects.sort((a: any, b: any) => {
+  return new Date(b.frontmatter.dateStart) - new Date(a.frontmatter.dateStart);
+});
 ---
 
 
 <div class="mt-2 space-y-4">
   {
-    EXPERIENCE.slice(0, 3).map((exp) => (
+    projects.slice(0, 3).map((project) => (
       <div>
-        <h3 class="text-lg font-semibold">{exp.position}</h3>
-        <a class="text-sm text-primary" href={exp?.link ?? ''}>
-          {exp.company}
-        </a>
+        <h3 class="text-lg font-semibold text-primary">
+          <a href={project?.url ?? ''}>
+            {project.frontmatter.title}
+          </a>
+        </h3>
+        <p class="text-sm">
+          {project.frontmatter.description}
+        </p>
         <p class="text-sm text-gray-600">
-          {exp.start} - {exp.end}
+          {project.frontmatter.dateStart} {project.frontmatter.end ? '- ' + project.frontmatter?.end : ''}
         </p>
       </div>
     ))
   }
-  <a href="/work">
+  <a href="/projects">
     <Button variant="link" className="pl-0"> View More</Button>
   </a>
 </div>
