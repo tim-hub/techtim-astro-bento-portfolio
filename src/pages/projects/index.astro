@@ -1,8 +1,9 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro'
-import TopLayout from '../layouts/TopLayout.astro'
-import BottomLayout from '../layouts/BottomLayout.astro'
-import ProjectCard from '../components/ProjectCard.astro'
+import BaseLayout from 'src/layouts/BaseLayout.astro'
+import TopLayout from 'src/layouts/TopLayout.astro'
+import BottomLayout from 'src/layouts/BottomLayout.astro'
+import ProjectCard from 'src/components/ProjectCard.astro'
+import { getCollection } from "astro:content";
 
 import type { EntryFieldTypes } from 'contentful'
 
@@ -17,11 +18,11 @@ interface Project {
 }
 
 // read mdx files from projects folder as entities
-const projects = await Astro.glob('./projects/*.mdx');
+const projects = await getCollection('projects');
 
 // sort projects by dateStart DESC
 projects.sort((a: any, b: any) => {
-  return new Date(b.frontmatter.dateStart) - new Date(a.frontmatter.dateStart);
+  return new Date(b.data.startDate) - new Date(a.data.startDate);
 });
 ---
 
@@ -43,13 +44,13 @@ projects.sort((a: any, b: any) => {
           projects.map((entity: any) => (
             <ProjectCard
               class="w-full sm:w-2/5"
-              key={entity.frontmatter.title}
-              href={entity.url}
-              heading={entity.frontmatter.title}
-              subheading={entity.frontmatter.description}
-              altText={'screenshot of ' + entity.frontmatter.title}
-              imagePath={entity?.frontmatter?.ogImage}
-              dateStart={entity.frontmatter.dateStart}
+              key={entity.data.title}
+              href={'/projects/' + entity.slug}
+              heading={entity.data.title}
+              subheading={entity.data.description}
+              altText={entity?.data?.image.alt}
+              imagePath={entity?.data?.image.url}
+              dateStart={entity.data.startDate}
             />
           ))
         }

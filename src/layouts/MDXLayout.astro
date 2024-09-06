@@ -5,13 +5,13 @@ import { Breadcrumbs } from "astro-breadcrumbs";
 
 import "astro-breadcrumbs/breadcrumbs.css";
 
-const {frontmatter, url} = Astro.props;
-const {title, description, ogImage, dateStart} = frontmatter;
+const {frontmatter} = Astro.props;
+const {title, description, image, startDate} = frontmatter;
 ---
 
-<BaseLayout url={url} title={title} description={description} ogImage={ogImage}>
+<BaseLayout title={title} description={description} ogImage={image?.url}>
   <main class="p-4 mt-4">
-    <Breadcrumbs separatorAriaHidden={false} ariaLabel="breadcrumbs" >
+    <Breadcrumbs separatorAriaHidden={false} ariaLabel="breadcrumbs">
       <svg
         slot="separator"
         xmlns="http://www.w3.org/2000/svg"
@@ -32,7 +32,7 @@ const {title, description, ogImage, dateStart} = frontmatter;
       {title}
     </h2>
 
-    <div class="text-sm text-light my-2 sr-only">{dateStart}</div>
+    <div class="text-sm text-light my-2 sr-only">{startDate}</div>
     <div class="prose">
       <!--required with tailwind typography plugin to render html-->
       <slot/>

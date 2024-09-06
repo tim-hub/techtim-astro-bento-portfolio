@@ -1,0 +1,22 @@
+---
+import { getCollection } from 'astro:content';
+import MDXLayout from "../../layouts/MDXLayout.astro";
+
+
+/**
+  This is the dynamic route for projects
+ **/
+export async function getStaticPaths() {
+  const projectsEntries = await getCollection('projects');
+  return projectsEntries.map(entry => ({
+    params: {slug: entry.slug}, props: {entry},
+  }));
+}
+
+const {entry} = Astro.props;
+const {Content} = await entry.render();
+---
+
+<MDXLayout frontmatter={entry.data}>
+  <Content/>
+</MDXLayout>

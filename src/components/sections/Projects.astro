@@ -4,7 +4,8 @@ import { Button } from '../ui/button'
 
 
 
-const projects = await Astro.glob('src/pages/projects/*.mdx');
+const projects = await Astro.glob('src/content/projects/*.mdx');
+
 
 // sort projects by dateStart DESC
 projects.sort((a: any, b: any) => {
