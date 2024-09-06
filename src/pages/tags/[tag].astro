@@ -1,0 +1,52 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "src/layouts/BaseLayout.astro";
+import ProjectCard from 'src/components/ProjectCard.astro'
+import BottomLayout from "../../layouts/BottomLayout.astro";
+import TopLayout from "../../layouts/TopLayout.astro";
+
+export async function getStaticPaths() {
+  const allProjects = await getCollection("projects");
+  const uniqueTags = [...new Set(allProjects.map((post) => post.data.tags).flat())];
+
+  return uniqueTags.map((tag) => {
+    const filteredPosts = allProjects.filter((post) =>
+      post.data.tags.includes(tag)
+    );
+    return {
+      params: {tag},
+      props: {projects: filteredPosts},
+    };
+  });
+}
+
+const {tag} = Astro.params;
+const {projects} = Astro.props;
+---
+
+<BaseLayout
+  title={`Tag: ${tag}`}
+  description={`Content with tag - ${tag}`}
+>
+  <main class="flex min-h-[80vh] flex-auto flex-col" transition:animate="slide">
+    <TopLayout>
+      <h2
+        class="scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight first:mt-0 text-center"
+      >
+        {tag}
+      </h2>
+    </TopLayout>
+    <BottomLayout>
+      <div class="flex w-full flex-wrap justify-center gap-2">
+
+        {projects.map((post) =>
+          <ProjectCard url={`/posts/${post.slug}/`} heading={post.data.title} subheading={post.data.description}
+                       imagePath={post.data.image.url}
+                       altText={post.data.image.alt} dateStart={post.data.startDate}
+
+          />)}
+
+      </div>
+    </BottomLayout>
+  </main>
+</BaseLayout>
