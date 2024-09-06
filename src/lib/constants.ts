@@ -33,11 +33,7 @@ export const SITE: Site = {
   }
 }
 
-// Work Page
-export const WORK: Page = {
-  TITLE: 'Work',
-  DESCRIPTION: 'Places I have worked.',
-}
+
 
 // Blog Page
 export const BLOG: Page = {
@@ -45,11 +41,7 @@ export const BLOG: Page = {
   DESCRIPTION: 'Writing on topics I am passionate about.',
 }
 
-// Projects Page
-export const PROJECTS: Page = {
-  TITLE: 'Projects',
-  DESCRIPTION: 'Recent projects I have worked on.',
-}
+
 
 // Search Page
 export const SEARCH: Page = {
