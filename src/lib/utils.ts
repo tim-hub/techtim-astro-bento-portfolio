@@ -11,3 +11,18 @@ export const shuffleArray = (array: Array<any>) => {
     [array[i], array[j]] = [array[j], array[i]];
   }
 }
+
+
+export const getUserTimeZone = (): string => {
+  return Intl.DateTimeFormat().resolvedOptions().timeZone;
+}
+
+
+export const formateLocalDate = (date: Date, timeZone: string = getUserTimeZone()): string => {
+  return new Intl.DateTimeFormat(navigator.language, {
+    year: 'numeric',
+    month: 'short',
+    day: '2-digit',
+    timeZone: timeZone
+  }).format(date);
+}

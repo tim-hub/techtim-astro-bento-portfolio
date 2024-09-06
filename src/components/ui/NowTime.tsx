@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import moment from 'moment-timezone'
+import { formateLocalDate } from "@/lib/utils.ts";
 
 const NowTime = ({timezone}: any) => {
   const [dateTime, setDateTime] = useState<Date>(new Date())
@@ -16,7 +17,7 @@ const NowTime = ({timezone}: any) => {
   if (dateTime) {
     return (
       <div>
-        <p>{dateTime.toDateString()}</p>
+        <p>{formateLocalDate(dateTime)}</p>
         <p className={'text-2xl my-2'}>{dateTime.toLocaleTimeString()}</p>
         <p className="text-sm text-gray-500">{timezone}</p>
       </div>

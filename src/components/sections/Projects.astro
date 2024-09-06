@@ -1,15 +1,15 @@
 ---
+import { getCollection } from "astro:content";
 import Card from '../Card.astro'
 import { Button } from '../ui/button'
+import { formateLocalDate, getUserTimeZone } from "../../lib/utils";
 
 
-
-const projects = await Astro.glob('src/content/projects/*.mdx');
-
+const projects = await getCollection('projects');
 
 // sort projects by dateStart DESC
 projects.sort((a: any, b: any) => {
-  return new Date(b.frontmatter.dateStart) - new Date(a.frontmatter.dateStart);
+  return new Date(b.data.startDate) - new Date(a.data.startDate);
 });
 ---
 
@@ -19,15 +19,15 @@ projects.sort((a: any, b: any) => {
     projects.slice(0, 3).map((project) => (
       <div>
         <h3 class="text-lg font-semibold text-primary">
-          <a href={project?.url ?? ''}>
-            {project.frontmatter.title}
+          <a href={`/projects/${project.slug}`}>
+            {project.data.title}
           </a>
         </h3>
         <p class="text-sm">
-          {project.frontmatter.description}
+          {project.data.description}
         </p>
         <p class="text-sm text-gray-600">
-          {project.frontmatter.dateStart} {project.frontmatter.end ? '- ' + project.frontmatter?.end : ''}
+          {formateLocalDate(project.data.startDate)} {project.data?.endDate ? '- ' + formateLocalDate(project.data.endDate) : ''}
         </p>
       </div>
     ))

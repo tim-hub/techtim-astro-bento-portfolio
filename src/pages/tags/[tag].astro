@@ -4,6 +4,8 @@ import BaseLayout from "src/layouts/BaseLayout.astro";
 import ProjectCard from 'src/components/ProjectCard.astro'
 import BottomLayout from "../../layouts/BottomLayout.astro";
 import TopLayout from "../../layouts/TopLayout.astro";
+import { Breadcrumbs } from "astro-breadcrumbs";
+
 
 export async function getStaticPaths() {
   const allProjects = await getCollection("projects");
@@ -29,14 +31,35 @@ const {projects} = Astro.props;
   description={`Content with tag - ${tag}`}
 >
   <main class="flex min-h-[80vh] flex-auto flex-col" transition:animate="slide">
+
     <TopLayout>
       <h2
         class="scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight first:mt-0 text-center"
       >
         {tag}
       </h2>
+      <div class="inline-block ">
+        <!--todo fix the breadcrumbs-->
+        <Breadcrumbs separatorAriaHidden={false} ariaLabel="breadcrumbs">
+          <svg
+            slot="separator"
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+        </Breadcrumbs>
+      </div>
     </TopLayout>
     <BottomLayout>
+
       <div class="flex w-full flex-wrap justify-center gap-2">
 
         {projects.map((post) =>
