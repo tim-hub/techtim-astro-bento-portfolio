@@ -29,6 +29,9 @@ importers:
       astro:
         specifier: ^4.15.3
         version: 4.15.3(@types/node@22.5.4)(rollup@4.21.2)(typescript@5.5.4)
+      astro-breadcrumbs:
+        specifier: ^3.0.1
+        version: 3.0.1(astro@4.15.3(@types/node@22.5.4)(rollup@4.21.2)(typescript@5.5.4))
       class-variance-authority:
         specifier: ^0.7.0
         version: 0.7.0
@@ -1070,6 +1073,11 @@ packages:
   astring@1.9.0:
     resolution: {integrity: sha512-LElXdjswlqjWrPpJFg1Fx4wpkOCxj1TDHlSV4PlaRxHGWko024xICaa97ZkMfs6DRKlCguiAI+rbXv5GWwXIkg==}
     hasBin: true
+
+  astro-breadcrumbs@3.0.1:
+    resolution: {integrity: sha512-WoraP7NJM8LF8MXiq/neqsMkn1fF6YO+P4ugn/pSrZuXxHaH2naUdlbGb1+x4Z27wRDVn4Q/DXFy+cXNfLqvVQ==}
+    peerDependencies:
+      astro: ^2.0.0-beta.0 || ^3.0.0 || ^4.0.0
 
   astro@4.15.3:
     resolution: {integrity: sha512-zwO8H+vnNYbrdKz0Pkh2a4B/JK06JUvI18w+FxL3B5u4jqPB/SU+LH9XVUUWdNQsyJ/DBHKAf0LDK0RmwxXQEw==}
@@ -3685,6 +3693,10 @@ snapshots:
   array-iterate@2.0.1: {}
 
   astring@1.9.0: {}
+
+  astro-breadcrumbs@3.0.1(astro@4.15.3(@types/node@22.5.4)(rollup@4.21.2)(typescript@5.5.4)):
+    dependencies:
+      astro: 4.15.3(@types/node@22.5.4)(rollup@4.21.2)(typescript@5.5.4)
 
   astro@4.15.3(@types/node@22.5.4)(rollup@4.21.2)(typescript@5.5.4):
     dependencies:

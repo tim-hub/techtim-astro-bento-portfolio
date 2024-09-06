@@ -1,13 +1,38 @@
 ---
 import BaseLayout from './BaseLayout.astro';
 
+import { Breadcrumbs } from "astro-breadcrumbs";
+
+import "astro-breadcrumbs/breadcrumbs.css";
+
 const {frontmatter, url} = Astro.props;
-const {title, description, ogImage} = frontmatter;
+const {title, description, ogImage, dateStart} = frontmatter;
 ---
 
 <BaseLayout url={url} title={title} description={description} ogImage={ogImage}>
-
   <main class="p-4 mt-4">
+    <Breadcrumbs separatorAriaHidden={false} ariaLabel="breadcrumbs" >
+      <svg
+        slot="separator"
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <polyline points="9 18 15 12 9 6"></polyline>
+      </svg>
+    </Breadcrumbs>
+
+    <h2 class="text-2xl font-bold py-4 font-sans">
+      {title}
+    </h2>
+
+    <div class="text-sm text-light my-2 sr-only">{dateStart}</div>
     <div class="prose">
       <!--required with tailwind typography plugin to render html-->
       <slot/>

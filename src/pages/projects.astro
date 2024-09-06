@@ -19,6 +19,10 @@ interface Project {
 // read mdx files from projects folder as entities
 const projects = await Astro.glob('./projects/*.mdx');
 
+// sort projects by dateStart DESC
+projects.sort((a: any, b: any) => {
+  return new Date(b.frontmatter.dateStart) - new Date(a.frontmatter.dateStart);
+});
 ---
 
 <BaseLayout
@@ -43,9 +47,9 @@ const projects = await Astro.glob('./projects/*.mdx');
               href={entity.url}
               heading={entity.frontmatter.title}
               subheading={entity.frontmatter.description}
-              altText={ 'screenshot of ' + entity.frontmatter.title}
+              altText={'screenshot of ' + entity.frontmatter.title}
               imagePath={entity?.frontmatter?.ogImage}
-              dateStarted={entity.frontmatter.dateStarted}
+              dateStart={entity.frontmatter.dateStart}
             />
           ))
         }
