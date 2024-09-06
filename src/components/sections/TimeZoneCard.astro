@@ -1,5 +1,5 @@
 ---
-import TimeZoneV2 from '../../react/TimeZoneCardV2'
+import NowTime from '../../react/NowTime'
 import Pulse from '../Pulse.astro'
 
 
@@ -10,7 +10,7 @@ const isItUserTimeZone = timezone === Intl.DateTimeFormat().resolvedOptions().ti
 
 <div class="p-1 flex flex-row items-center gap-2">
 
-  <TimeZoneV2 timezone={timezone} client:load/>
+  <NowTime timezone={timezone} client:load/>
   {isItUserTimeZone ?
     <Pulse /> :
     <></>}

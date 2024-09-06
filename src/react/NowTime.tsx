@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import moment from 'moment-timezone'
 
-const Timezone = ({timezone}: any) => {
+const NowTime = ({timezone}: any) => {
   const [dateTime, setDateTime] = useState<Date>(new Date())
   const updateDuration = 1001; // be naughty
 
@@ -24,4 +24,4 @@ const Timezone = ({timezone}: any) => {
   }
 }
 
-export default Timezone
+export default NowTime
