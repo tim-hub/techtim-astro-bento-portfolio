@@ -1,3 +1,23 @@
+---
+import { getAndGroupUniqueTags } from "../../lib/utils";
+
+const tagsMap = await getAndGroupUniqueTags();
+
+const skills = [
+  'Python / Django',
+  'JavaScript / Typescript',
+  'AWS',
+  'Cloud Computing',
+  'Kubernetes',
+  'React',
+  'Astro',
+  'Node.js',
+  'Postgres',
+  'SQL',
+  'Astro',
+];
+---
+
 <div class="flex flex-col gap-2">
   <p class="text-sm font-light mb-1">
 
@@ -17,21 +37,34 @@
     I use the following technologies:
   </p>
   <ul class="list-inside list-disc">
-    <li>Python / Django</li>
-    <li>JavaScript / Typescript</li>
-    <li>AWS</li>
-    <li>Cloud Computing</li>
-    <li>Kubernetes</li>
-    <li>React</li>
-    <li>Astro</li>
-    <li>Node.js</li>
-    <li>Postgres</li>
-    <li>SQL</li>
-    <li>Astro</li>
+    {
+      skills.map((skill) => {
+        if (tagsMap.has(skill)) {
+          return (
+
+            <li>
+              <a href="/tags/{skill}" class=" hover:font-bold">
+                {skill}
+              </a>
+            </li>
+          )
+        } else {
+          return (
+            <li>
+              <span>
+                {skill}
+              </span>
+            </li>
+          )
+        }
+
+      })
+    }
   </ul>
 
   <p class="text-sm font-light">
-    More about my <a href="/projects" class="underline hover:font-bold">Projects</a> and my <a href="/experiences" class="underline hover:font-bold">Experiences</a>.
+    More about my <a href="/projects" class="underline hover:font-bold">Projects</a> and my <a href="/experiences"
+                                                                                               class="underline hover:font-bold">Experiences</a>.
   </p>
 </div>
 
