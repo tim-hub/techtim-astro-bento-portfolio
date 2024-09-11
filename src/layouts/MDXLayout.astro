@@ -2,9 +2,10 @@
 import BaseLayout from './BaseLayout.astro';
 import CustomisedBreadCrumbs from "../components/CustomisedBreadCrumbs.astro";
 import BottomLayout from "./BottomLayout.astro";
+import ContentTags from "../components/ContentTags.astro";
 
 const {frontmatter} = Astro.props;
-const {title, description, image, startDate} = frontmatter;
+const {title, description, image, startDate, tags} = frontmatter;
 // frontmatter is from MDX metadata for MD pages, we now use content for data now, we use frontmatter for backward compatibility
 ---
 
@@ -16,12 +17,18 @@ const {title, description, image, startDate} = frontmatter;
       {title}
     </h2>
 
+    {tags &&
+      <div class="pb-4">
+      <ContentTags tags={tags}/>
+        </div>}
+
+
     <div class="text-sm text-light my-2 sr-only">{startDate}</div>
 
-        <div class="prose ">
-          <!--required with tailwind typography plugin + prose to render html-->
-          <slot/>
-        </div>
+    <div class="prose ">
+      <!--required with tailwind typography plugin + prose to render html-->
+      <slot/>
+    </div>
 
   </main>
 </BaseLayout>

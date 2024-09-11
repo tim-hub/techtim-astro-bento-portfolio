@@ -1,0 +1,13 @@
+---
+import { Badge } from "./ui/badge";
+const {tags} = Astro.props;
+---
+
+
+<div class="flex flex-0 gap-1 flex-wrap">
+  {tags.map((i) => (
+    <a href={`/tags/${i}`}>
+      <Badge className="truncate">{i}</Badge>
+    </a>
+  ))}
+</div>

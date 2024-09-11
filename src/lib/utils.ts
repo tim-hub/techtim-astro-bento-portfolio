@@ -45,13 +45,15 @@ export const formateLocalMonth = (date: Date, timeZone: string = getUserTimeZone
 export const getAndGroupUniqueTags = async (): Promise<Map<string, any[]>> => {
   const allProjects = await getCollection("projects",);
   const allExperiences = await getCollection("experiences",);
+  const books = await getCollection("books",);
 
-  const allItems = [...allProjects, ...allExperiences];
+  const allItems = [...allProjects, ...allExperiences, ...books];
 
   // @ts-ignore
   const uniqueTags: string[] = [
     ...new Set(allProjects.map((post: any) => post.data.tags).flat()),
     ...new Set(allExperiences.map((post: any) => post.data.tags).flat()),
+    ...new Set(books.map((post: any) => post.data.tags).flat()),
   ];
 
   const tagItemsMap = new Map<string, any[]>();

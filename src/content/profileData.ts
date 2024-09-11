@@ -1,11 +1,18 @@
 export const PROFILE = {
+  site: {
+    SEO: {
+      //     more complicated description for SEO
+      title: 'Tech Tim (@TechTim42) - Learn, Share and Grow ❤️',
+      description: 'Learn, Share and Grow ❤️ -- Software Engineer | AWS Professional | Open Source Lover  --☘️ Be more productive, Better in communicating, Contribute more to community. | Tech Tim\'s New Astro Portfolio'
+    }
+  },
   firstName: 'Tim',
   name: 'Tech Tim',
   headLine: 'Learn, Share and Grow ❤️',
   headLine2: 'I enjoy providing software solutions and bring ideas to life and solve real-world problems.',
   website: 'https://techtim42.com',
   avatarUrl: '/techtim42.png',
-  shortIntros:[
+  shortIntros: [
     '💻 Software/AI Engineer | AWS Professional | Open Source Lover',
     '☁️ AWS Community Builder',
     '☘️ Passionate about Dev Experience(DX) Improvement',
@@ -65,11 +72,4 @@ export const PROFILE = {
       institution: 'New Relic',
     },
   ],
-  site: {
-    SEO: {
-      //     more complicated description for SEO
-      title: 'Tech Tim (@TechTim42) - Learn, Share and Grow ❤️',
-      description: 'Learn, Share and Grow ❤️ -- Software Engineer | AWS Professional | Open Source Lover  --☘️ Be more productive, Better in communicating, Contribute more to community. | Tech Tim\'s New Astro Portfolio'
-    }
-  }
 }

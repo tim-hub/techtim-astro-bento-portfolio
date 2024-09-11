@@ -29,9 +29,23 @@ const experienceCollection = defineCollection(
   }
 )
 
+const bookCollection = defineCollection(
+  {
+    type: 'content',
+    schema: z.object({
+      title: z.string(),
+      readYear: z.number(),
+      author: z.string(),
+      tags: z.array(z.string()).optional()
+    })
+  }
+)
+
+
 
 // Export a single `collections` object to register your collection(s)
 export const collections = {
   projects: projectCollection,
-  experiences: experienceCollection
+  experiences: experienceCollection,
+  books: bookCollection,
 };
