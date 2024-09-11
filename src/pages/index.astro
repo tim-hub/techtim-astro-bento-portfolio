@@ -8,13 +8,14 @@ import Books from '../components/sections/Books.astro'
 import ExperienceCard from '../components/sections/ExperienceCard.astro'
 import Projects from '../components/sections/Projects.astro'
 import StudyCard from '../components/sections/StudyCard.astro'
-import { LINKS, SITE, WORDS } from "../lib/constants";
+import {  SITE, WORDS } from "../lib/constants";
 ---
 
 
 <BaseLayout
   title={SITE.SEO.title}
   description={SITE.SEO.description}
+
 >
   <div
     slot="loader"
@@ -22,6 +23,7 @@ import { LINKS, SITE, WORDS } from "../lib/constants";
   >
   </div>
   <main
+    transition:animate="fade"
     class="relative m-auto grid w-full max-w-6xl gap-2 overflow-hidden p-2 sm:gap-2 sm:p-4 md:grid-cols-2 md:gap-3 md:p-6 lg:grid-cols-12 lg:gap-4"
   >
     <Card colSpan="lg:col-span-9  md:col-span-2" rowSpan="md:row-span-1 lg:row-span-4">
