@@ -14,7 +14,7 @@ export async function getStaticPaths() {
 }
 
 const {entry} = Astro.props;
-const {author} = entry.data;
+const {author, readYear} = entry.data;
 const {Content} = await entry.render();
 ---
 
@@ -22,6 +22,10 @@ const {Content} = await entry.render();
   {
     author &&
     <div class="text-sm font-light italic">Book Author: {author}</div>
+  }
+  {
+    readYear &&
+    <div class="text-sm font-light italic">Read Year: {readYear}</div>
   }
   <Content/>
 </MDXLayout>

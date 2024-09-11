@@ -1,28 +1,34 @@
 ---
-import Card from '../Card.astro'
-import {PROFILE} from "../../content/profileData";
+
+import { getCollection } from "astro:content";
+
+
+const books = await getCollection('books');
+
+books.sort(
+  (a, b) => {
+    return b.data.readYear - a.data.readYear;
+  }
+);
+
+
 ---
-
-
+<div class="h-full">
+  <p class="text-sm font-light my-1">
+    I like to read books as well, both fiction and non-fiction. Here are some of the books I have read.
+  </p>
   <div class="h-full">
-    <address class="mt-4 flex flex-col">
-      <h2 class="text-gray-500">Contact Details</h2>
-      <p>camiloplaza3@gmail.com</p>
-      <p>🇨🇴 Bogotá D.C, Colombia 🇨🇴</p>
-    </address>
     <div class="mt-4 flex w-fit flex-col">
-      <h2 class="text-gray-500">Socials</h2>
-      <ul>
-        <li>
-          <a href={PROFILE.links.linkedin} target="_blank">Linkedin</a>
-        </li>
-        <li>
-          <a href={PROFILE.links.github} target="_blank">Github</a>
-        </li>
-        <li>
-          <a href={PROFILE.links.instagram} target="_blank">Instagram</a>
-        </li>
+      <ul class="list-inside list-disc">
+        {books.map(
+          (book) => (
+            <li>
+              <a href={`/books/${book.slug}`} class="hover:font-bold underline">{book.data.title}</a>
+              <span class="text-sm font-thin italic">- {book.data.author}</span>
+            </li>
+          )
+        )}
       </ul>
     </div>
   </div>
-
+</div>
