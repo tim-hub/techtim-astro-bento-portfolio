@@ -50,10 +50,10 @@ export function Component({tags}: {
               dataKey="value"
               tickLine={false}
               axisLine={false}
-              tickMargin={10}
-              minTickGap={10}
+              tickMargin={9}
+              minTickGap={2}
               tickFormatter={(value) => {
-                return value.length < 10 ? value : value.slice(0, 10) + "..."
+                return value.length < 10 ? value : value.slice(0, 6) + "..."
               }}
             />
             <ChartTooltip

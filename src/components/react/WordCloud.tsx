@@ -12,6 +12,7 @@ const SimpleCloud = ({words}: {
 
   return (
     <TagCloud
+      className={'hover:cursor-pointer'}
       minSize={12}
       maxSize={35}
       tags={words}

@@ -14,13 +14,16 @@ tagsMap.forEach((value, key) => {
   tagsWithFrequency.push({value: key, count: value.length});
 });
 
+// sort tags by frequency
+tagsWithFrequency.sort((a, b) => b.count - a.count);
+
 console.log('tagsWithFrequency', tagsWithFrequency);
 ---
 <IndexPageLayout title="Tags"
                  description="All tags used in this website"
                  subTitle="Tags">
   <TagCloud
-    tags={tagsWithFrequency}
+    tags={tagsWithFrequency.slice(0,10)}
     client:load
   />
   <WordCloud words={tagsWithFrequency} client:load/>
