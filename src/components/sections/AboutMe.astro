@@ -1,37 +1,23 @@
 ---
 import { getAndGroupUniqueTags } from "../../lib/utils";
+import { PROFILE } from "../../content/profileData";
+
 
 const tagsMap = await getAndGroupUniqueTags();
 
-const skills = [
-  'Python / Django',
-  'JavaScript / Typescript',
-  'AWS',
-  'Cloud Computing',
-  'Kubernetes',
-  'React',
-  'Astro',
-  'Node.js',
-  'Postgres',
-  'SQL',
-  'Astro',
-];
+const skills = PROFILE.skills;
 ---
 
 <div class="flex flex-col gap-2">
   <p class="text-sm font-light mb-1">
-
-
-    Learn, Share and Grow ❤️
-
+    {PROFILE.headLine}
   </p>
 
   <p class="text-md mb-1 font-medium">
-    I enjoy providing software solutions and bring ideas to life and solve real-world problems.
+    {PROFILE.headLine2}
   </p>
 
   <hr/>
-
 
   <p class="text-sm font-light">
     I use the following technologies:

@@ -58,7 +58,7 @@ export const getAndGroupUniqueTags = async (): Promise<Map<string, any[]>> => {
 
   uniqueTags.forEach((tag) => {
     const filteredItems = allItems.filter((item) =>
-      item.data.tags.includes(tag)
+      item?.data?.tags?.includes(tag)
     );
 
     tagItemsMap.set(tag, filteredItems);

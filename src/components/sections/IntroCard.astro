@@ -1,8 +1,8 @@
 ---
 import { Button } from '../ui/button'
-import { LINKS } from '../../lib/constants'
+import { PROFILE } from "../../content/profileData";
 import { Linkedin, Github, Mail, Youtube, Twitter, Rss, Book } from 'lucide-react'
-import Books from "./Books.astro";
+
 ---
 
 <div class="flex h-full w-full">
@@ -43,25 +43,25 @@ import Books from "./Books.astro";
       </ul>
     </div>
     <div class="flex gap-4">
-      <a href={LINKS.github} aria-label="github profile" target="_blank">
+      <a href={PROFILE.links.github} aria-label="github profile" target="_blank">
         <Button aria-label="github profile">
           <Github/>
           <span class="sr-only">GitHub Profile</span>
         </Button>
       </a>
-      <a href={LINKS.youtube} aria-label="youtube channel" target="_blank">
+      <a href={PROFILE.links.youtube} aria-label="youtube channel" target="_blank">
         <Button aria-label="youtube channel">
           <Youtube/>
           <span class="sr-only">Youtube Channel TechTim42</span>
         </Button>
       </a>
-      <a href={LINKS.twitter} aria-label="twitter profile" target="_blank">
+      <a href={PROFILE.links.twitter} aria-label="twitter profile" target="_blank">
         <Button>
           <Twitter/>
           <span class="sr-only">Twitter profile</span>
         </Button>
       </a>
-      <a href={LINKS.goodreads} aria-label="twitter profile" target="_blank">
+      <a href={PROFILE.links.goodreads} aria-label="twitter profile" target="_blank">
         <Button>
           <Book/>
           <span class="sr-only">Goodreads</span>

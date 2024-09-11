@@ -1,6 +1,6 @@
 ---
 import Card from '../Card.astro'
-import { LINKS } from '../../lib/constants'
+import {PROFILE} from "../../content/profileData";
 ---
 
 
@@ -14,13 +14,13 @@ import { LINKS } from '../../lib/constants'
       <h2 class="text-gray-500">Socials</h2>
       <ul>
         <li>
-          <a href={LINKS.linkedin} target="_blank">Linkedin</a>
+          <a href={PROFILE.links.linkedin} target="_blank">Linkedin</a>
         </li>
         <li>
-          <a href={LINKS.github} target="_blank">Github</a>
+          <a href={PROFILE.links.github} target="_blank">Github</a>
         </li>
         <li>
-          <a href={LINKS.instagram} target="_blank">Instagram</a>
+          <a href={PROFILE.links.instagram} target="_blank">Instagram</a>
         </li>
       </ul>
     </div>

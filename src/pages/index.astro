@@ -8,7 +8,8 @@ import Books from '../components/sections/Books.astro'
 import ExperienceCard from '../components/sections/ExperienceCard.astro'
 import Projects from '../components/sections/Projects.astro'
 import StudyCard from '../components/sections/StudyCard.astro'
-import { SITE, WORDS } from "../lib/constants";
+import { PROFILE } from "../content/profileData";
+const SITE = PROFILE.site
 ---
 
 
@@ -48,7 +49,7 @@ import { SITE, WORDS } from "../lib/constants";
     <Card colSpan="lg:col-span-4 md:col-span-1" rowSpan="md:row-span-1 lg:row-span-2">
       <div class="flex h-full flex-col justify-between">
         <blockquote class="mt-6 border-l-2 pl-6 italic">
-          “{WORDS[0]}”
+          “{PROFILE.words[0]}”
         </blockquote>
         <p class="mt-2 text-xs"></p>
       </div>

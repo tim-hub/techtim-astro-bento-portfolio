@@ -1,7 +1,9 @@
 ---
 import { buttonVariants } from '../components/ui/button'
 import { ModeToggle } from '../components/react/ThemeToggle'
-import { SITE } from "../lib/constants";
+import { PROFILE } from "../content/profileData";
+
+const SITE = PROFILE.site
 ---
 
 <header
@@ -12,7 +14,7 @@ import { SITE } from "../lib/constants";
   >
     <div class="flex gap-6 md:gap-10">
       <a href="/" class="flex items-center space-x-2">
-        <span class="inline-block font-bold">{SITE.TITLE}</span>
+        <span class="inline-block font-bold">{PROFILE.name}</span>
       </a>
     </div>
     <div class="flex flex-1 items-center justify-end space-x-4">
@@ -34,7 +36,7 @@ import { SITE } from "../lib/constants";
           Projects
         </a>
         <a
-          href="https://github.com/bue221"
+          href={PROFILE.links.github}
           target="_blank"
           rel="noreferrer"
           class={buttonVariants({variant: 'ghost'})}
