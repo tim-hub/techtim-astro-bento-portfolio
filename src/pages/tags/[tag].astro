@@ -1,95 +1,48 @@
 ---
-import { getCollection } from "astro:content";
-import BaseLayout from "src/layouts/BaseLayout.astro";
 import ProjectCard from 'src/components/ProjectCard.astro'
-import BottomLayout from "../../layouts/BottomLayout.astro";
-import TopLayout from "../../layouts/TopLayout.astro";
-import { Breadcrumbs } from "astro-breadcrumbs";
-import * as console from "node:console";
+import IndexPageLayout from "../../layouts/IndexPageLayout.astro";
+import { getAndGroupUniqueTags } from "../../lib/utils";
 
 
+/**
+ * This is to fetch all unique tags and related content (project experience etc) for each tag
+ * And then render the content for each tag
+ **/
 export async function getStaticPaths() {
-  const allProjects = await getCollection("projects",);
-  const allExperiences = await getCollection("experiences",);
+  const tagItemsMap = await getAndGroupUniqueTags();
+  console.log('tagItemsMap', tagItemsMap);
 
-  const allItems = [...allProjects, ...allExperiences];
-
-  const uniqueTags = [
-    ...new Set(allProjects.map((post) => post.data.tags).flat()),
-    ...new Set(allExperiences.map((post) => post.data.tags).flat()),
-  ];
-
-  return uniqueTags.map((tag) => {
-    const filteredItems = allItems.filter((item) =>
-      item.data.tags.includes(tag)
-    );
-
-    console.log(filteredItems)
-    return {
-      params: {tag},
-      props: {items: filteredItems},
-    };
-  });
+  const result = []
+  tagItemsMap.forEach(
+    (items, tag) => {
+      result.push({
+        params: {tag}, props: {items},
+      });
+    }
+  );
+  console.log('result', result, Object.keys(tagItemsMap));
+  return result;
 }
 
 const {tag} = Astro.params;
 const {items} = Astro.props;
 ---
+<IndexPageLayout title={tag} description="A new dimension to access content of this website" subTitle={tag}>
 
-<BaseLayout
-  title={`Tag: ${tag}`}
-  description={`Content with tag - ${tag}`}
->
-  <main class="flex min-h-[80vh] flex-auto flex-col" transition:animate="slide">
+  {
+    items?.map((post) =>
+      <>
+        <ProjectCard url={`/posts/${post.slug}/`} heading={post.data.title} subheading={post.data.description}
+                     imagePath={post.data?.image?.url}
+                     altText={post.data?.image?.alt} dateStart={post.data.startDate}
 
-    <TopLayout>
-      <h2
-        class="scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight first:mt-0 text-center"
-      >
-        {tag}
-      </h2>
-      <div class="inline-block ">
+        />
+        <p>
+          {post.data.title}
+        </p>
+      </>
+    )
+  }
 
-        <!--todo fix the breadcrumbs-->
-        <Breadcrumbs separatorAriaHidden={false} ariaLabel="breadcrumbs">
-          <svg
-            slot="separator"
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          >
-            <polyline points="9 18 15 12 9 6"></polyline>
-          </svg>
-        </Breadcrumbs>
 
-      </div>
-    </TopLayout>
-    <BottomLayout>
-
-      <div class="flex w-full flex-wrap justify-center gap-2">
-
-        {items.map((post) =>
-          <>
-            <ProjectCard url={`/posts/${post.slug}/`} heading={post.data.title} subheading={post.data.description}
-                         imagePath={post.data?.image?.url}
-                         altText={post.data?.image?.alt} dateStart={post.data.startDate}
-
-            />
-            <p>
-              {post.data.title}
-            </p>
-          </>
-        )
-
-        }
-
-      </div>
-    </BottomLayout>
-  </main>
-</BaseLayout>
+</IndexPageLayout>
