@@ -8,7 +8,7 @@ import Books from '../components/sections/Books.astro'
 import ExperienceCard from '../components/sections/ExperienceCard.astro'
 import Projects from '../components/sections/Projects.astro'
 import StudyCard from '../components/sections/StudyCard.astro'
-import {  SITE, WORDS } from "../lib/constants";
+import { SITE, WORDS } from "../lib/constants";
 ---
 
 
@@ -66,10 +66,13 @@ import {  SITE, WORDS } from "../lib/constants";
       <Books/>
     </Card>
 
-        <Card colSpan="md:col-span-2 lg:col-span-6" rowSpan="md:row-span-2 lg:row-span-2" title="Chat with my AI bot">
-
-        </Card>
-
+    <Card colSpan="md:col-span-2 lg:col-span-6" rowSpan="md:row-span-2 lg:row-span-2" title="Chat with my AI bot">
+      <div class="text-sm w-full h-full flex justify-center items-center ">
+        <i>
+          Work in progress
+        </i>
+      </div>
+    </Card>
 
   </main>
 </BaseLayout>
