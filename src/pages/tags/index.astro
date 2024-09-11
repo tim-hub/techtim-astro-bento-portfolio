@@ -1,8 +1,27 @@
 ---
+import { getAndGroupUniqueTags } from "../../lib/utils";
+// import TagCloud  from "../../components/react/TagCloud";
+import IndexPageLayout from "../../layouts/IndexPageLayout.astro";
+import WordCloud from "../../components/react/WordCloud";
 
+const tagsMap = await getAndGroupUniqueTags();
 
+const tags = tagsMap.keys();
 
+const tagsWithFrequency = []
+
+tagsMap.forEach((value, key) => {
+  tagsWithFrequency.push({value: key, count: value.length});
+});
+
+console.log('tagsWithFrequency', tagsWithFrequency);
 ---
+<IndexPageLayout title="Tags"
+                 description="All tags used in this website"
+                 subTitle="Tags Cloud">
+  <!--<TagCloud-->
+  <!--  client:load-->
+  <!--/>-->
+  <WordCloud words={tagsWithFrequency} client:load/>
+</IndexPageLayout>
 
-
-<!--todo add this index for tags page-->
