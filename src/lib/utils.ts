@@ -33,6 +33,14 @@ export const formateLocalDate = (date: Date, timeZone: string = getUserTimeZone(
   }).format(date);
 }
 
+export const formateLocalMonth = (date: Date, timeZone: string = getUserTimeZone()): string => {
+  return new Intl.DateTimeFormat(navigator.language, {
+    year: 'numeric',
+    month: 'short',
+    timeZone: timeZone
+  }).format(date);
+}
+
 
 export const getAndGroupUniqueTags = async (): Promise<Map<string, any[]>> => {
   const allProjects = await getCollection("projects",);
