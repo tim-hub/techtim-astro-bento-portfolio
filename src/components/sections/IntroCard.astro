@@ -1,7 +1,8 @@
 ---
 import { Button } from '../ui/button'
 import { LINKS } from '../../lib/constants'
-import { Linkedin, Github, Mail, Youtube, Twitter, Rss } from 'lucide-react'
+import { Linkedin, Github, Mail, Youtube, Twitter, Rss, Book } from 'lucide-react'
+import Books from "./Books.astro";
 ---
 
 <div class="flex h-full w-full">
@@ -58,6 +59,12 @@ import { Linkedin, Github, Mail, Youtube, Twitter, Rss } from 'lucide-react'
         <Button>
           <Twitter/>
           <span class="sr-only">Twitter profile</span>
+        </Button>
+      </a>
+      <a href={LINKS.goodreads} aria-label="twitter profile" target="_blank">
+        <Button>
+          <Book/>
+          <span class="sr-only">Goodreads</span>
         </Button>
       </a>
     </div>
