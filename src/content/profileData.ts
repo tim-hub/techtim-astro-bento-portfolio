@@ -40,7 +40,7 @@ export const PROFILE = {
     youtube: 'https://www.youtube.com/@techtim42',
     stackoverflow: 'https://stackoverflow.com/users/5249708/tim',
     devto: 'https://dev.to/timhub',
-    goodreads: 'https://www.goodreads.com/techtim',
+    goodreads: '',
   },
   studies: [
     // studies, qualifications and certifications

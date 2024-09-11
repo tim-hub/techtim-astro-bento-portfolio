@@ -19,8 +19,10 @@ import { Linkedin, Github, Mail, Youtube, Twitter, Rss, Book } from 'lucide-reac
           <>
             {index === (PROFILE.shortIntros.length / 2)
               //when it is even number, and in the middle add an empty line
+
               ? <br/>
-              : <></>
+              :
+              <></>
             }
             <li>{intro}</li>
           </>
@@ -34,24 +36,31 @@ import { Linkedin, Github, Mail, Youtube, Twitter, Rss, Book } from 'lucide-reac
           <span class="sr-only">GitHub Profile</span>
         </Button>
       </a>
-      <a href={PROFILE.links.youtube} aria-label="youtube channel" target="_blank">
-        <Button aria-label="youtube channel">
-          <Youtube/>
-          <span class="sr-only">Youtube Channel TechTim42</span>
-        </Button>
-      </a>
-      <a href={PROFILE.links.twitter} aria-label="twitter profile" target="_blank">
-        <Button>
-          <Twitter/>
-          <span class="sr-only">Twitter profile</span>
-        </Button>
-      </a>
-      <a href={PROFILE.links.goodreads} aria-label="twitter profile" target="_blank">
-        <Button>
-          <Book/>
-          <span class="sr-only">Goodreads</span>
-        </Button>
-      </a>
+      {
+        PROFILE.links?.youtube && <a href={PROFILE.links.youtube} aria-label="youtube channel" target="_blank">
+          <Button aria-label="youtube channel">
+            <Youtube/>
+            <span class="sr-only">Youtube Channel TechTim42</span>
+          </Button>
+        </a>
+      }
+      {
+        PROFILE.links?.twitter && <a href={PROFILE.links.twitter} aria-label="twitter profile" target="_blank">
+          <Button>
+            <Twitter/>
+            <span class="sr-only">Twitter profile</span>
+          </Button>
+        </a>
+      }
+
+      {
+        PROFILE.links?.goodreads && <a href={PROFILE.links.goodreads} aria-label="twitter profile" target="_blank">
+          <Button>
+            <Book/>
+            <span class="sr-only">Goodreads</span>
+          </Button>
+        </a>
+      }
     </div>
   </div>
   <img
