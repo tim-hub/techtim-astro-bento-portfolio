@@ -1,13 +1,22 @@
 export const PROFILE = {
+  firstName: 'Tim',
   name: 'Tech Tim',
   headLine: 'Learn, Share and Grow ❤️',
   headLine2: 'I enjoy providing software solutions and bring ideas to life and solve real-world problems.',
   website: 'https://techtim42.com',
+  avatarUrl: '/techtim42.png',
+  shortIntros:[
+    '💻 Software/AI Engineer | AWS Professional | Open Source Lover',
+    '☁️ AWS Community Builder',
+    '☘️ Passionate about Dev Experience(DX) Improvement',
+    '', // for empty line
+    '', // for empty line
+    '📈 Unprofessional Investor',
+    '🌱 Part-time blogger and unprofessional Youtuber',
+    '📚 Book reader | 🥏 Frisbee Ultimate Player | 🎲 Board Game Player',
+  ],
   words: [
-
     'As each one has received a gift, minister it to one another'
-
-
   ],
   skills: [
     'Python / Django',

@@ -2,7 +2,6 @@
 import { Button } from '../ui/button'
 import { PROFILE } from "../../content/profileData";
 import { Linkedin, Github, Mail, Youtube, Twitter, Rss, Book } from 'lucide-react'
-
 ---
 
 <div class="flex h-full w-full">
@@ -13,33 +12,19 @@ import { Linkedin, Github, Mail, Youtube, Twitter, Rss, Book } from 'lucide-reac
       <!--</h6>-->
       <p class="m-0 text-xl font-light">
         Hi, I'm
-        <b class="font-bold">Tim</b>.
+        <b class="font-bold">{PROFILE.firstName}</b>.
       </p>
       <ul class="pt-4">
-        <li>
-          💻 Software/AI Engineer | AWS Professional | Open Source Lover
-        </li>
-        <li>
-          ☁️ AWS Community Builder
-        </li>
-        <li>
-          ☘️ Passionate about Dev Experience(DX) Improvement
-        </li>
-
-        <br/>
-
-        <li>
-          📈 Unprofessional Investor
-        </li>
-
-        <li>
-          🌱 Part-time blogger and unprofessional Youtuber
-        </li>
-
-        <li>
-          📚 Book reader | 🥏 Frisbee Ultimate Player | 🎮 Gamer | 🎲 Board Game Player
-        </li>
-
+        {PROFILE.shortIntros.map((intro, index) => (
+          <>
+            {index === (PROFILE.shortIntros.length / 2)
+              //when it is even number, and in the middle add an empty line
+              ? <br/>
+              : <></>
+            }
+            <li>{intro}</li>
+          </>
+        ))}
       </ul>
     </div>
     <div class="flex gap-4">
@@ -70,9 +55,9 @@ import { Linkedin, Github, Mail, Youtube, Twitter, Rss, Book } from 'lucide-reac
     </div>
   </div>
   <img
-    src="/techtim42.png"
+    src={PROFILE.avatarUrl}
     class="pointer-events-none absolute bottom-[-20px] right-[-110px] z-[-1] max-h-[256px] w-auto select-none opacity-50 md:relative md:bottom-auto md:right-auto md:z-auto md:opacity-100"
-    alt="Tech Tim Image"
+    alt={`image of ${PROFILE.name}`}
   />
 </div>
 
