@@ -16,7 +16,7 @@ const SimpleCloud = ({words}: {
       minSize={12}
       maxSize={35}
       tags={words}
-      shuffle={false}
+      shuffle={true}
       colorOptions={
         {
           luminosity: 'bright',

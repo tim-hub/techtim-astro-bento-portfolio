@@ -30,8 +30,7 @@ export function Component({tags}: {
   )
 
   return (
-    <Card className={'min-w-[500px]  w-full '}>
-
+    <Card className={'min-w-[375px] w-full'}>
       <CardContent className="px-2 sm:p-6">
         <ChartContainer
           config={chartConfig}
