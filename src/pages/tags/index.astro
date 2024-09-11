@@ -1,6 +1,6 @@
 ---
 import { getAndGroupUniqueTags } from "../../lib/utils";
-// import TagCloud  from "../../components/react/TagCloud";
+import TagCloud from "../../components/react/TagCloud";
 import IndexPageLayout from "../../layouts/IndexPageLayout.astro";
 import WordCloud from "../../components/react/WordCloud";
 
@@ -18,10 +18,11 @@ console.log('tagsWithFrequency', tagsWithFrequency);
 ---
 <IndexPageLayout title="Tags"
                  description="All tags used in this website"
-                 subTitle="Tags Cloud">
-  <!--<TagCloud-->
-  <!--  client:load-->
-  <!--/>-->
+                 subTitle="Tags">
+  <TagCloud
+    tags={tagsWithFrequency}
+    client:load
+  />
   <WordCloud words={tagsWithFrequency} client:load/>
 </IndexPageLayout>
 

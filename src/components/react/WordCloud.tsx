@@ -15,6 +15,14 @@ const SimpleCloud = ({words}: {
       minSize={12}
       maxSize={35}
       tags={words}
+      shuffle={false}
+      colorOptions={
+        {
+          luminosity: 'bright',
+          hue: 'orange',
+
+        }
+      }
       onClick={handleRedirect}
     />
   )

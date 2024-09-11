@@ -1,42 +1,77 @@
 "use client"
 
-import { Bar, BarChart } from "recharts"
+import * as React from "react"
+import { Bar, BarChart, CartesianGrid, XAxis } from "recharts"
 
-import { type ChartConfig, ChartContainer } from "@/components/ui/chart"
+import { Card, CardContent, } from "@/components/ui/card"
+import { type ChartConfig, ChartContainer, ChartTooltip, ChartTooltipContent, } from "@/components/ui/chart"
 
-const chartData = [
-  {month: "January", desktop: 186, mobile: 80},
-  {month: "February", desktop: 305, mobile: 200},
-  {month: "March", desktop: 237, mobile: 120},
-  {month: "April", desktop: 73, mobile: 190},
-  {month: "May", desktop: 209, mobile: 130},
-  {month: "June", desktop: 214, mobile: 140},
-]
+export const description = "An interactive bar chart"
 
 const chartConfig = {
-  desktop: {
-    label: "Desktop",
-    color: "#2563eb",
-  },
-  mobile: {
-    label: "Mobile",
-    color: "#60a5fa",
+  count: {
+    label: "Count",
+    color: "hsl(var(--chart-1))",
   },
 } satisfies ChartConfig
 
-export function Component() {
+export function Component({tags}: {
+  tags: {
+    value: string
+    count: number
+  }[]
+}) {
+  const [activeChart, setActiveChart] =
+    React.useState<keyof typeof chartConfig>("count")
 
-  console.log('chartData', chartData);
+  const total = React.useMemo(
+    () => (tags.map((tag) => tag.count).reduce((a, b) => a + b, 0)),
+    []
+  )
 
   return (
+    <Card className={'min-w-[500px]  w-full '}>
 
-      <ChartContainer config={chartConfig} className="min-h-[300px] w-full">
-        <BarChart accessibilityLayer data={chartData} >
-          <Bar dataKey="desktop" fill="var(--color-desktop)" radius={4}/>
-          <Bar dataKey="mobile" fill="var(--color-mobile)" radius={4}/>
-        </BarChart>
-      </ChartContainer>
-
+      <CardContent className="px-2 sm:p-6">
+        <ChartContainer
+          config={chartConfig}
+          className="aspect-auto h-[250px] w-full"
+        >
+          <BarChart
+            accessibilityLayer
+            data={tags}
+            margin={{
+              left: 12,
+              right: 12,
+            }}
+          >
+            <CartesianGrid vertical={false}/>
+            <XAxis
+              dataKey="value"
+              tickLine={false}
+              axisLine={false}
+              tickMargin={10}
+              minTickGap={10}
+              tickFormatter={(value) => {
+                return value.length < 10 ? value : value.slice(0, 10) + "..."
+              }}
+            />
+            <ChartTooltip
+              content={
+                <ChartTooltipContent
+                  className="w-[150px]"
+                  nameKey="count"
+                  labelFormatter={(value) => {
+                    return value
+                  }}
+                />
+              }
+            />
+            <Bar dataKey={activeChart} fill={`var(--color-${activeChart})`}/>
+          </BarChart>
+        </ChartContainer>
+      </CardContent>
+    </Card>
   )
 }
 
