@@ -25,7 +25,7 @@ export const formateLocalDate = (
   date: Date,
   timeZone: string = getUserTimeZone(),
 ): string => {
-  return new Intl.DateTimeFormat(navigator.language, {
+  return new Intl.DateTimeFormat(navigator?.language ? navigator?.language : 'en-US', {
     year: "numeric",
     month: "short",
     day: "2-digit",
@@ -37,7 +37,7 @@ export const formateLocalMonth = (
   date: Date,
   timeZone: string = getUserTimeZone(),
 ): string => {
-  return new Intl.DateTimeFormat(navigator.language, {
+  return new Intl.DateTimeFormat(navigator?.language ? navigator?.language : 'en-US', {
     year: "numeric",
     month: "short",
     timeZone: timeZone,
