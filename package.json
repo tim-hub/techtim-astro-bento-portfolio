@@ -1,49 +1,73 @@
 {
   "site": "https://techtim42.com",
   "id": "TechTim42",
+  "name": "@tim-hub/techtim42",
+  "version": "1.0.0",
   "fullName": "Tech Tim",
-  "name": "techtim42.com",
   "description": "Learn, Share and Grow ❤️ -- Software Engineer | AWS Professional | Open Source Lover  --☘️ Be more productive, Better in communicating, Contribute more to community ",
-  "version": "0.1.0",
   "author": {
     "name": "Tech Tim",
     "url": "https://TechTim42.com"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/tim-hub/techtim42.git"
+    "url": "https://github.com/tim-hub/techtim-astro-bento-portfolio"
   },
-  "private": true,
+  "homepage": "https://techtim42.com",
+  "keywords": [
+    "astro",
+    "portfolio",
+    "blog",
+    "projects",
+    "experience",
+    "tags system",
+    "tailwindcss",
+    "react",
+    "bento",
+    "shadcn/ui"
+  ],
+  "license": "MIT",
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
+    "build": "astro build",
+    "dev": "astro dev",
+    "format": "prettier -w . --cache",
+    "preview": "astro preview",
+    "start": "astro dev"
   },
-  "license": "private",
   "dependencies": {
-    "@chakra-ui/next-js": "2.1.5",
-    "@fontsource/open-sans": "5.0.11",
-    "@fontsource/raleway": "4.5.12",
-    "next": "14.0.4",
-    "react": "18.2.0",
-    "react-dom": "18.2.0"
-  },
-  "peerDependencies": {
-    "@chakra-ui/system": "2.6.0"
+    "@astrojs/mdx": "^3.1.5",
+    "@astrojs/react": "^3.6.2",
+    "@astrojs/tailwind": "^5.1.0",
+    "@contentful/rich-text-html-renderer": "^16.6.10",
+    "@radix-ui/react-dropdown-menu": "^2.1.1",
+    "@radix-ui/react-separator": "^1.1.0",
+    "@radix-ui/react-slot": "^1.1.0",
+    "astro": "^4.15.4",
+    "astro-breadcrumbs": "^3.0.1",
+    "class-variance-authority": "^0.7.0",
+    "clsx": "^2.1.1",
+    "lucide-react": "^0.363.0",
+    "moment-timezone": "^0.5.45",
+    "motion": "^10.18.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-tagcloud": "^2.3.3",
+    "recharts": "^2.12.7",
+    "sharp": "^0.33.5",
+    "tailwind-merge": "^2.5.2",
+    "tailwindcss": "^3.4.11",
+    "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
-    "@babel/core": "7.23.7",
-    "@chakra-ui/react": "2.8.0",
-    "@emotion/react": "11.11.1",
-    "@emotion/styled": "11.11.0",
-    "@types/node": "20.5.7",
-    "@types/react": "18.2.21",
-    "@types/react-dom": "18.2.18",
-    "eslint": "8.56.0",
-    "eslint-config-next": "14.1.4",
-    "framer-motion": "10.17.0",
-    "react-icons": "4.12.0",
-    "typescript": "5.3.3"
-  }
+    "@tailwindcss/typography": "^0.5.15",
+    "@types/node": "^22.5.4",
+    "@types/react": "^18.3.5",
+    "@types/react-dom": "^18.3.0",
+    "@types/react-tagcloud": "^2.3.2",
+    "prettier": "^3.3.3",
+    "prettier-plugin-astro": "^0.13.0",
+    "prettier-plugin-tailwindcss": "^0.5.14",
+    "typescript": "^5.6.2"
+  },
+  "packageManager": "pnpm@8.15.5"
 }

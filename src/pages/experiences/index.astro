@@ -1,0 +1,68 @@
+---
+import { getCollection } from "astro:content";
+import { formateLocalDate, formateLocalMonth } from "../../lib/utils";
+import { Badge } from "../../components/ui/badge";
+import IndexPageLayout from "../../layouts/IndexPageLayout.astro";
+import { TableCell, TableRow, Table, TableHeader, TableHead, TableBody } from "../../components/ui/table";
+import { ArrowRight } from "lucide-react";
+
+const experiences = await getCollection('experiences');
+
+experiences.sort((a, b) => {
+  return new Date(b.data.startDate) - new Date(a.data.startDate);
+});
+---
+<IndexPageLayout title="Experiences"
+                 description="Places I have worked in, this is just a rough timeline, not include all details."
+                 subTitle="Experiences">
+
+  <Table>
+    <!--<TableHeader>-->
+    <!--    &lt;!&ndash;<TableRow>&ndash;&gt;-->
+
+    <!--    &lt;!&ndash;</TableRow>&ndash;&gt;-->
+    <!--  </TableHeader>-->
+    <TableBody>
+      {
+        experiences.map((entry) => (
+          <TableRow key={entry.slug}>
+            <TableCell className="font-medium ">
+              <div class="flex flex-col gap-1 min-w-20">
+                <a
+                  href={'/experiences/' + entry.slug ?? ''}
+                  class={`font-semibold hover:font-extrabold ${entry?.slug ? 'text-primary' : 'text-foreground'}`}
+                >
+                  {entry.data.title}
+                </a>
+                <div class="mb-4 text-sm">
+                  {formateLocalMonth(entry.data.startDate)} - {formateLocalMonth(entry.data.endDate)}
+                </div>
+
+              </div>
+            </TableCell>
+            <TableCell>
+              <div class="ml-4 flex p-2 flex-col gap-2  text-sm max-w-lg min-w-16 ">
+                {entry.data.company}
+
+                <div class="flex flex-0 gap-1 flex-wrap">
+                  {entry.data.tags.map((i) => (
+                    <a href={`tags/${i}`}>
+                      <Badge className="truncate">{i}</Badge>
+                    </a>
+                  ))}
+                </div>
+
+              </div>
+            </TableCell>
+            <TableCell>
+              <a href={'/experiences/' + entry.slug}>
+                <ArrowRight/>
+              </a>
+            </TableCell>
+          </TableRow>
+        ))
+      }
+    </TableBody>
+  </Table>
+
+</IndexPageLayout>

@@ -1,0 +1,41 @@
+---
+import BaseLayout from 'src/layouts/BaseLayout.astro'
+import TopLayout from 'src/layouts/TopLayout.astro'
+import BottomLayout from 'src/layouts/BottomLayout.astro'
+import CustomisedBreadCrumbs from "../components/CustomisedBreadCrumbs.astro";
+
+let {title, description, image, subTitle} = Astro.props;
+
+if (!subTitle) {
+  subTitle = title;
+}
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  ogImage={image?.url}
+>
+  <main class="flex min-h-[80vh] flex-auto flex-col w-full p-4 max-w-screen-lg" transition:name="hero">
+    <TopLayout>
+      <div class="border-b pb-2">
+        <div class="mb-8">
+          <CustomisedBreadCrumbs/>
+        </div>
+        <h2
+          class="scroll-m-20 pb-2 text-3xl font-semibold tracking-tight first:mt-0 text-center"
+        >
+          {subTitle}
+        </h2>
+        <p class="text-center text-sm">
+          {description}
+        </p>
+      </div>
+    </TopLayout>
+    <BottomLayout>
+      <div class="flex flex-wrap justify-center gap-4 w-full">
+        <slot/>
+      </div>
+    </BottomLayout>
+  </main>
+</BaseLayout>

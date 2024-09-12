@@ -1,0 +1,64 @@
+---
+import { getAndGroupUniqueTags } from "../../lib/utils";
+import TagsBarChart from "../../components/react/TagsBarChart";
+import IndexPageLayout from "../../layouts/IndexPageLayout.astro";
+import WordCloud from "../../components/react/WordCloud";
+
+const tagsMap = await getAndGroupUniqueTags();
+
+const tags = tagsMap.keys();
+
+const tagsWithFrequency = []
+
+tagsMap.forEach((value, key) => {
+  tagsWithFrequency.push({value: key, count: value.length});
+});
+
+// sort tags by frequency
+tagsWithFrequency.sort((a, b) => b.count - a.count);
+
+---
+<IndexPageLayout title="Tags"
+                 description="All tags used in this website"
+                 subTitle="Tags">
+  <div class="flex flex-col gap-4">
+    <div class="overflow-auto">
+      <h3 class="mb-2 text-lg font-bold">Tags Usage</h3>
+      <TagsBarChart
+        tags={tagsWithFrequency.slice(0, 10)}
+        client:load
+      />
+    </div>
+
+    <div>
+      <h3 class="mb-2 text-lg font-bold">
+        Word Cloud
+      </h3>
+      <WordCloud words={tagsWithFrequency} client:load/>
+      <blockquote class="mt-6 border-l-2 pl-6 text-xs font-light italic">
+        You can click on the tags above in the word cloud to see all the content related to that tag.
+      </blockquote>
+    </div>
+
+    <div class="sr-only">
+      <h3 class="mb-2 text-lg font-bold">
+        All Tags sorted by frequency
+      </h3>
+      <ul class="list-inside list-disc">
+        {
+          tagsWithFrequency.map((tag) => {
+            return (
+              <li>
+                <a href={`/tags/${tag.value}`} class="hover:font-bold">
+                  {tag.value} ({tag.count})
+                </a>
+              </li>
+            )
+          })
+        }
+      </ul>
+    </div>
+
+  </div>
+</IndexPageLayout>
+

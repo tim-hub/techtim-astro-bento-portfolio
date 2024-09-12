@@ -1,0 +1,38 @@
+
+---
+import { getCollection } from "astro:content";
+import Card from '../Card.astro'
+import { Button } from '../ui/button'
+import { formateLocalDate } from "../../lib/utils";
+
+let experiences = await getCollection('experiences');
+
+// sort projects by dateStart DESC
+experiences.sort((a: any, b: any) => {
+  return new Date(b.data.startDate) - new Date(a.data.startDate);
+});
+
+experiences = experiences.slice(0, 3);
+---
+
+
+<div class="mt-2 space-y-4">
+  {
+    experiences.slice(0, 3).map((exp) => (
+      <div>
+        <h4 class="text-md font-medium">{exp.data.title}</h4>
+        <a class="text-sm text-primary hover:underline" href={ '/experiences/' + exp?.slug ?? ''}>
+          {exp.data.company}
+        </a>
+        <p class="text-sm text-gray-600">
+         {formateLocalDate(exp.data.startDate)} {exp.data?.endDate ? '- ' + formateLocalDate(exp.data.endDate) : ''}
+
+        </p>
+      </div>
+    ))
+  }
+  <a href="/experiences">
+    <Button variant="link" className="pl-0"> View More</Button>
+  </a>
+</div>
+

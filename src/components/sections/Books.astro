@@ -1,0 +1,38 @@
+---
+import { getCollection } from "astro:content";
+import { Button } from "../ui/button";
+
+
+let books = await getCollection('books');
+
+books.sort(
+  (a, b) => {
+    return b.data.readYear - a.data.readYear;
+  }
+);
+
+books = books.slice(0, 5);
+---
+<div class="h-full">
+  <p class="text-sm font-light my-1">
+    I like to read books as well, both fiction and non-fiction. Here are some of the books I have read.
+  </p>
+  <div class="h-full">
+    <div class="mt-4 flex w-fit flex-col">
+      <ul class="list-inside list-disc">
+        {books.map(
+          (book) => (
+            <li>
+              <a href={`/books/${book.slug}`} class=" hover:font-bold hover:underline">{book.data.title}</a>
+              <span class="text-xs font-thin italic">- {book.data.author}</span>
+            </li>
+          )
+        )}
+      </ul>
+      <a href="/books">
+        <Button variant="link" className="pl-0"> View More</Button>
+      </a>
+    </div>
+  </div>
+
+</div>

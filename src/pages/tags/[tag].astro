@@ -1,0 +1,48 @@
+---
+import ProjectCard from 'src/components/ProjectCard.astro'
+import IndexPageLayout from "../../layouts/IndexPageLayout.astro";
+import { getAndGroupUniqueTags } from "../../lib/utils";
+
+
+/**
+ * This is to fetch all unique tags and related content (project experience etc) for each tag
+ * And then render the content for each tag
+ **/
+export async function getStaticPaths() {
+  const tagItemsMap = await getAndGroupUniqueTags();
+  console.log('tagItemsMap', tagItemsMap);
+
+  const result = []
+  tagItemsMap.forEach(
+    (items, tag) => {
+      result.push({
+        params: {tag}, props: {items},
+      });
+    }
+  );
+  console.log('result', result, Object.keys(tagItemsMap));
+  return result;
+}
+
+const {tag} = Astro.params;
+const {items} = Astro.props;
+---
+<IndexPageLayout title={tag} description="A new dimension to access content of this website" subTitle={tag}>
+
+  {
+    items?.map((post) =>
+      <>
+        <ProjectCard url={`/posts/${post.slug}/`} heading={post.data.title} subheading={post.data.description}
+                     imagePath={post.data?.image?.url}
+                     altText={post.data?.image?.alt} dateStart={post.data.startDate}
+
+        />
+        <p>
+          {post.data.title}
+        </p>
+      </>
+    )
+  }
+
+
+</IndexPageLayout>

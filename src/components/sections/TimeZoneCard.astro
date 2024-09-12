@@ -1,0 +1,21 @@
+---
+import NowTime from '../react/NowTime'
+import Pulse from '../Pulse.astro'
+import { getUserTimeZone } from "../../lib/utils";
+
+
+const {timezone = getUserTimeZone()} = Astro.props
+
+const isItUserTimeZone = timezone === getUserTimeZone()
+---
+
+<div class="p-1 flex flex-row items-center gap-2">
+
+  <NowTime timezone={timezone} client:load/>
+  {isItUserTimeZone ?
+    <Pulse/> :
+    <></>}
+</div>
+
+
+

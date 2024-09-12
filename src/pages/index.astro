@@ -1,0 +1,109 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro'
+import IntroCard from '../components/sections/IntroCard.astro'
+import AboutMe from '../components/sections/AboutMe.astro'
+import Card from '../components/Card.astro'
+import TimeZoneCard from '../components/sections/TimeZoneCard.astro'
+import Books from '../components/sections/Books.astro'
+import ExperienceCard from '../components/sections/ExperienceCard.astro'
+import Projects from '../components/sections/Projects.astro'
+import StudyCard from '../components/sections/StudyCard.astro'
+import { PROFILE } from "../content/profileData";
+import BlogCard from '../components/sections/BlogCard.astro'
+const SITE = PROFILE.site
+---
+
+
+<BaseLayout
+  title={SITE.SEO.title}
+  description={SITE.SEO.description}
+
+>
+  <div
+    slot="loader"
+    class="fixed top-0 right-0 bottom-0 left-0 z-50 flex h-screen w-screen items-center justify-center text-3xl font-black uppercase text-neutral-50 loader bg-darkslate-700"
+  >
+  </div>
+  <main
+    transition:animate="fade"
+    class="relative m-auto grid w-full max-w-6xl gap-2 overflow-hidden p-2 sm:gap-2 sm:p-4 md:grid-cols-2 md:gap-3 md:p-6 lg:grid-cols-12 lg:gap-4"
+  >
+    <Card colSpan="lg:col-span-9  md:col-span-2" rowSpan="md:row-span-1 lg:row-span-4">
+      <IntroCard/>
+    </Card>
+    <Card colSpan="lg:col-span-3 md:col-span-1" rowSpan="md:row-span-3 lg:row-span-6" title="About me">
+      <AboutMe/>
+    </Card>
+
+    <Card colSpan="lg:col-span-3 md:col-span-1" rowSpan="md:row-span-3 lg:row-span-4" title="Projects">
+      <Projects/>
+    </Card>
+
+    <Card colSpan="lg:col-span-3 md:col-span-1" rowSpan="md:row-span-1 lg:row-span-2" title="Your time">
+      <TimeZoneCard/>
+    </Card>
+    <Card colSpan="lg:col-span-3 md:col-span-1" rowSpan="md:row-span-1 lg:row-span-2" title="My time">
+      <TimeZoneCard timezone="Pacific/Auckland "/>
+    </Card>
+
+
+    <Card colSpan="lg:col-span-4 md:col-span-1" rowSpan="md:row-span-1 lg:row-span-2">
+      <div class="flex h-full flex-col justify-between">
+        <blockquote class="mt-6 border-l-2 pl-6 italic">
+          “{PROFILE.words[0]}”
+        </blockquote>
+        <p class="mt-2 text-xs"></p>
+      </div>
+    </Card>
+    <Card colSpan="md:col-span-1 lg:col-span-5" rowSpan="md:row-span-2 lg:row-span-2"
+          title="Education and Certificates">
+      <StudyCard/>
+    </Card>
+
+    <Card colSpan="md:col-span-1 lg:col-span-3" rowSpan="md:row-span-2 lg:row-span-2" title="Experiences">
+      <ExperienceCard/>
+    </Card>
+
+
+    <Card colSpan="md:col-span-2 lg:col-span-6" rowSpan="md:row-span-1 lg:row-span-1" title="Blog Posts">
+      <BlogCard/>
+    </Card>
+    <Card colSpan="md:col-span-1 lg:col-span-3" rowSpan="md:row-span-2 lg:row-span-2" title="Books I read">
+      <Books/>
+    </Card>
+    <Card colSpan="md:col-span-2 lg:col-span-6" rowSpan="md:row-span-1 lg:row-span-1" title="Contact">
+      <div class="w-full h-full flex justify-center items-center text-center text-sm">
+        <i>
+          Please feel free to reach out to me through <a href={PROFILE.links.twitter} class="hover:font-bold underline">Twitter
+          message</a> or <a href={PROFILE.repo+'/issues'} class="hover:font-bold underline">Github issue</a>.
+        </i>
+      </div>
+    </Card>
+
+
+  </main>
+</BaseLayout>
+
+<script>
+  // JS for animating the cards
+  import { stagger, spring, timeline, type TimelineDefinition } from 'motion'
+  import { loaderAnimation } from '../lib/constants'
+
+  const cards = document.querySelectorAll('.card-animate')
+
+  const sequence = [
+    loaderAnimation,
+    [
+      cards,
+      {y: ['40%', '0%'], opacity: [0, 1]},
+      {
+        at: '-0.1',
+        duration: 0.2,
+        delay: stagger(0.1),
+        easing: spring({velocity: 200, stiffness: 50, damping: 10}),
+      },
+    ],
+  ]
+
+  timeline(sequence as TimelineDefinition)
+</script>
