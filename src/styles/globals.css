@@ -67,3 +67,11 @@
     @apply bg-background text-foreground;
   }
 }
+
+
+.prose img {
+    /*make markdown content image be center*/
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}

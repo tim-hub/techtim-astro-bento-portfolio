@@ -3,32 +3,33 @@ import BaseLayout from './BaseLayout.astro';
 import CustomisedBreadCrumbs from "../components/CustomisedBreadCrumbs.astro";
 import BottomLayout from "./BottomLayout.astro";
 import ContentTags from "../components/ContentTags.astro";
+import IndexPageLayout from "./IndexPageLayout.astro";
 
 const {frontmatter} = Astro.props;
 const {title, description, image, startDate, tags} = frontmatter;
 // frontmatter is from MDX metadata for MD pages, we now use content for data now, we use frontmatter for backward compatibility
 ---
 
-<BaseLayout title={title} description={description} ogImage={image?.url}>
-  <main class="flex min-h-[80vh] flex-auto flex-col p-4" transition:animate="fade">
-    <CustomisedBreadCrumbs/>
+<IndexPageLayout title={title} description={description} image={image} subTitle={title}>
 
-    <h2 class="text-2xl font-bold py-4 font-sans">
-      {title}
-    </h2>
+  <div class="w-full justify-center flex flex-col ">
+
 
     {tags &&
-      <div class="pb-4">
-      <ContentTags tags={tags}/>
-        </div>}
+      <div class="pb-4 mx-auto">
+        <ContentTags tags={tags}/>
+      </div>}
 
 
-    <div class="text-sm text-light my-2 sr-only">{startDate}</div>
+    {
+      startDate &&
+      <div class="text-sm text-light my-2 sr-only mx-auto">{startDate}</div>
+    }
 
-    <div class="prose ">
+    <div class="prose mx-auto ">
       <!--required with tailwind typography plugin + prose to render html-->
       <slot/>
     </div>
+  </div>
 
-  </main>
-</BaseLayout>
+</IndexPageLayout>
