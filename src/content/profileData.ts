@@ -8,6 +8,7 @@ export const PROFILE = {
     },
   },
   timezone: "Australia/Sydney",
+  language: "en-AU",
   firstName: "Tim",
   name: "Tech Tim",
   headLine: "Learn, Share and Grow ❤️",

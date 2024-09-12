@@ -2,7 +2,7 @@
 import { getCollection } from "astro:content";
 import Card from '../Card.astro'
 import { Button } from '../ui/button'
-import { formateLocalDate, getUserTimeZoneInBrowser } from "../../lib/utils";
+import { formateLocalDate } from "../../lib/utils";
 
 
 let posts = await getCollection('posts');

@@ -1,6 +1,8 @@
 import { type ClassValue, clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
 import { getCollection } from "astro:content";
+import { PROFILE } from "@/content/profileData.ts";
+
 
 /**
  * mergeClassNamesSafely
@@ -22,15 +24,12 @@ export const getUserTimeZoneInBrowser = (): string => {
 };
 
 const getLocalLanguage = (): string => {
-  if (typeof window !== 'undefined' && typeof navigator !== 'undefined' &&  navigator && navigator?.language) {
-    return navigator.language;
-  }
-  return 'en-US';
+  return PROFILE.language;
 }
 
 export const formateLocalDate = (
   date: Date,
-  timeZone: string = getUserTimeZoneInBrowser(),
+  timeZone: string = PROFILE.timezone,
 ): string => {
   return new Intl.DateTimeFormat(getLocalLanguage(), {
     year: "numeric",
@@ -42,7 +41,7 @@ export const formateLocalDate = (
 
 export const formateLocalMonth = (
   date: Date,
-  timeZone: string = getUserTimeZoneInBrowser(),
+  timeZone: string = PROFILE.timezone,
 ): string => {
   return new Intl.DateTimeFormat(getLocalLanguage(), {
     year: "numeric",

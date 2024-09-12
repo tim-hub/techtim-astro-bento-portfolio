@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import moment from "moment-timezone";
-import { formateLocalDate, getUserTimeZoneInBrowser } from "@/lib/utils.ts";
+import { getUserTimeZoneInBrowser } from "@/lib/utils.ts";
 
 const NowTime = ({timezone}: { timezone?: string }) => {
   const [currentTime, setCurrentTime] = useState<string>('');
