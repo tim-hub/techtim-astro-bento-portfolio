@@ -65,17 +65,17 @@ const SITE = PROFILE.site
     </Card>
 
 
-    <Card colSpan="md:col-span-2 lg:col-span-6" rowSpan="md:row-span-1 lg:row-span-1" title="Blog Posts">
+    <Card colSpan="md:col-span-1 lg:col-span-6" rowSpan="md:row-span-1 lg:row-span-1" title="Blog Posts">
       <BlogCard/>
     </Card>
     <Card colSpan="md:col-span-1 lg:col-span-3" rowSpan="md:row-span-2 lg:row-span-2" title="Books I read">
       <Books/>
     </Card>
-    <Card colSpan="md:col-span-2 lg:col-span-6" rowSpan="md:row-span-1 lg:row-span-1" title="Contact">
-      <div class="w-full h-full flex justify-center items-center text-center text-sm">
+    <Card colSpan="md:col-span-1 lg:col-span-6" rowSpan="md:row-span-2 lg:row-span-1" title="Contact">
+      <div class="flex h-full w-full items-center justify-center text-center text-sm">
         <i>
-          Please feel free to reach out to me through <a href={PROFILE.links.twitter} class="hover:font-bold underline">Twitter
-          message</a> or <a href={PROFILE.repo+'/issues'} class="hover:font-bold underline">Github issue</a>.
+          Please feel free to reach out to me through <a href={PROFILE.links.twitter} class="underline hover:font-bold">Twitter
+          message</a> or <a href={PROFILE.repo+'/issues'} class="underline hover:font-bold">Github issue</a>.
         </i>
       </div>
     </Card>
