@@ -1,19 +1,9 @@
 ---
 import ProjectCard from 'src/components/ProjectCard.astro'
 import { getCollection } from "astro:content";
-
-import type { EntryFieldTypes } from 'contentful'
 import IndexPageLayout from "../../layouts/IndexPageLayout.astro";
 
-interface Project {
-  contentTypeId: 'Projects'
-  fields: {
-    name: EntryFieldTypes.Text
-    img: EntryFieldTypes.AssetLink
-    website: EntryFieldTypes.EntryResourceLink<any>
-    repositorio: EntryFieldTypes.EntryResourceLink<any>
-  }
-}
+
 
 // read mdx files from projects folder as entities
 const projects = await getCollection('projects');
@@ -24,7 +14,7 @@ projects.sort((a: any, b: any) => {
 });
 ---
 
-<IndexPageLayout title="Projects" description="Projects I have worked on" subTitle="My Projects">
+<IndexPageLayout title="Projects" description="Projects I have worked on recently." subTitle="My Projects">
 
 
   {
