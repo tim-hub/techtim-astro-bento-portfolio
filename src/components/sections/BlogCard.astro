@@ -5,27 +5,25 @@ import { Button } from '../ui/button'
 import { formateLocalDate, getUserTimeZone } from "../../lib/utils";
 
 
-let projects = await getCollection('projects');
+let projects = await getCollection('posts');
 
-// sort projects by dateStart DESC
-projects.sort((a: any, b: any) => {
+projects = projects.sort((a, b) => {
   return new Date(b.data.startDate) - new Date(a.data.startDate);
 });
-
-projects = projects.slice(0, 3);
+projects = projects.slice(0, 2);
 ---
 
 
 <div class="mt-2 space-y-4">
   {
-    projects.slice(0, 3).map((project) => (
+    projects.map((project) => (
       <div>
         <h3 class="text-lg font-semibold text-primary">
-          <a href={`/projects/${project.slug}`} class="hover:underline">
+          <a href={`/projects/${project.slug}`} class="hover:underline line-clamp-2">
             {project.data.title}
           </a>
         </h3>
-        <p class="text-sm">
+        <p class="text-sm line-clamp-2">
           {project.data.description}
         </p>
         <p class="text-sm text-gray-600">
