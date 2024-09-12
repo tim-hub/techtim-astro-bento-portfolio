@@ -1,0 +1,83 @@
+---
+slug: 'chatgpt'
+title: 'Let ChatGPT to Be Your Pair Programmer'
+description: 'Unlick Github Copilot, OpenAI does not offer an IDE plugin to help devs for coding, but it does not mean, we cannot use ChatGPT for free as a coding assistant. We talk to ChatGPT to make it be a copilot for us.'
+startDate: 2023-01-12
+image: {
+    url: 'https://miro.medium.com/v2/resize:fit:720/format:webp/0*tZyOezm6kbGQffix.png',
+    alt: 'AI Robots'
+}
+tags: ['AI', 'LLM']
+---
+
+
+
+Unlick Github Copilot, OpenAI does not offer an IDE plugin to help devs for coding, but it does not mean, we cannot use ChatGPT for free as a coding assistant.
+
+Then **how**?
+
+> _We Talk_
+
+![](https://miro.medium.com/v2/resize:fit:700/0*tZyOezm6kbGQffix.png)
+
+
+
+Like [Dylan can teach ChatGPT to create a language](https://maximumeffort.substack.com/p/i-taught-chatgpt-to-invent-a-language), surely we can let ChatGPT pair with us to code.
+
+# What to do to get ChatGPT to help you coding
+
+1. Since it does not recognize picture, any thing related to design, UI, UX, we have to describe it in text as clear and detailed as possible
+2. Copy codes, and let it read, the WebUI of ChatGPT does not support Markdown or Rich Text Editor, so for anything related to source codes, we can directly copy the source codes to the input field, it is not well formatted and human readable, I am pretty sure if that is a colleague, he/she will not be happy, but ChatGPT it does not complain about it
+
+# Overall feeling
+
+I am very impressed in the beginning, it is able to
+
+- help you to write a whole React component,
+- help to suggest how to make UI better, through talking about generate UI design principles,
+- Suggest you project structure, for example, like State Components and Stateless Components can be in different folders.
+
+This is a suggestion from it about using Chakra UI
+
+![](https://miro.medium.com/v2/resize:fit:659/0*XExr-PowYFGmcmBP.png)
+
+This is an example of using react-dnd, with example
+
+![](https://miro.medium.com/v2/resize:fit:681/0*gAicka5u6WQLtGnq.png)
+
+chatgpt coding suggestion
+
+# What does not go well
+
+# ChatGPT it will forget what they say
+
+It was mentioned the color schema in the beginning, but later when I asked it to say it again, it forgot.
+**
+This is what is says in the beginning**
+
+![](https://miro.medium.com/v2/resize:fit:676/0*pIGD0x7fQrebMb0U.png)
+
+chatgpt suggested color template
+
+**But in the end, it forgot**
+
+![](https://miro.medium.com/v2/resize:fit:516/0*SgrH0wVI-YJJ3JnJ.png)
+
+chatgpt forgot
+
+Maybe this is more like a real human being, since real people, we do forget (sometimes).
+
+# Source Codes look Good but it requires some alteration before using
+
+- **Old Version Package**. In the beginning, it suggested me to use AntD as a UI library, when I asked to change to Chakra UI, it suggested me to use ChakrUI 0.8.0, which is very outdated.
+- **Type Errors**, it gives quite a few type errors in the code generation, most of them could be found through ESLint (non-AI tool), through ESLint rules, but ChatGPT does not do well here. Sometimes it even forget to import the relative packages.
+
+# In the end, What is very promising
+
+They understand general knowledge for **coding**, and **UI** very well. At the same time ChatGPT can do **coding review** very well, it can point many general coding suggestions in one go. I personally feel like it is much better than most of coding review/quality integration service at Github.
+
+**ChatGPT UI Suggestion About Simple and Elegant Color Design:**
+
+Certainly! Here are a few color palette options that you might find useful for your app:
+
+> Monochromatic: This color palette uses various shades and tints of a single color. This can create a cohesive and harmonious look for your app. For example, you could use a pale blue as your primary color and then use darker shades of blue for accents and highlights.    Complementary: This color palette uses colors that are opposite on the color wheel. For example, you could use a pale blue as your primary color and a warm orange as your secondary color. This creates a high contrast look that can be striking and visually interesting.    Analogous: This color palette uses colors that are next to each other on the color wheel. For example, you could use a pale blue as your primary color and then use shades of green and purple as accents. This creates a harmonious and cohesive look.    Triadic: This color palette uses colors that are evenly spaced around the color wheel. For example, you could use a pale blue as your primary color, a warm orange as your secondary color, and a rich purple as your tertiary color. This creates a bold and vibrant look.I hope these suggestions are helpful! Let me know if you have any further questions.

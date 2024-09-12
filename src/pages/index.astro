@@ -9,6 +9,7 @@ import ExperienceCard from '../components/sections/ExperienceCard.astro'
 import Projects from '../components/sections/Projects.astro'
 import StudyCard from '../components/sections/StudyCard.astro'
 import { PROFILE } from "../content/profileData";
+import BlogCard from '../components/sections/BlogCard.astro'
 const SITE = PROFILE.site
 ---
 
@@ -63,17 +64,22 @@ const SITE = PROFILE.site
       <ExperienceCard/>
     </Card>
 
+
+    <Card colSpan="md:col-span-2 lg:col-span-6" rowSpan="md:row-span-1 lg:row-span-1" title="Blog Posts">
+      <BlogCard/>
+    </Card>
     <Card colSpan="md:col-span-1 lg:col-span-3" rowSpan="md:row-span-2 lg:row-span-2" title="Books I read">
       <Books/>
     </Card>
-
-    <Card colSpan="md:col-span-2 lg:col-span-6" rowSpan="md:row-span-2 lg:row-span-2" title="Chat with my AI bot">
-      <div class="text-sm w-full h-full flex justify-center items-center ">
+    <Card colSpan="md:col-span-2 lg:col-span-6" rowSpan="md:row-span-1 lg:row-span-1" title="Contact">
+      <div class="w-full h-full flex justify-center items-center text-center text-sm">
         <i>
-          Work in progress
+          Please feel free to reach out to me through <a href={PROFILE.links.twitter} class="hover:font-bold underline">Twitter
+          message</a> or <a href={PROFILE.links.github} class="hover:font-bold underline">Github issue</a>.
         </i>
       </div>
     </Card>
+
 
   </main>
 </BaseLayout>

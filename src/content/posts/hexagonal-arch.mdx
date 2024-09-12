@@ -1,0 +1,77 @@
+---
+slug: 'hexagonal-arch'
+title: 'Learn to build a Hexagonal Architecture Micro Service'
+description: 'Micro Services became very popular, with the trending NodeJs, MERN Stacks. People started to give up their old monolith project and started to build more and more services to scale horizontally.'
+startDate: 2023-08-11
+image: {
+    url: 'https://miro.medium.com/v2/resize:fit:720/format:webp/0*IMitMmjKB3ecuBFO.png',
+    alt: 'Port Adapter Example in Ticket Service'
+}
+tags: ['Architecture']
+---
+
+Micro Services became very popular, with the trending NodeJs, MERN Stacks. People started to give up their old monolith project and started to build more and more services to scale horizontally.
+
+There is a new coming **problem** in this trend,
+
+> _What is a good practice or a good pattern to make micro services flexible to talk to each other?_
+
+![](https://miro.medium.com/v2/resize:fit:700/0*JzllyhJOrxHip24D.png)
+
+This is why `Hexagonal Architecture` becomes popular (aka Ports & Adapters Pattern/Architecture).
+
+# From Theory
+
+> _Create your application to work without either a UI or a database so you can run automated regression-tests against the application, work when the database becomes unavailable, and link applications together without any user involvement._
+>
+> _Alistair Cockburn, Humans and Technology,_ [_arc@acm.org_](mailto:arc@acm.org)_, HaT TR 2005.02, Sept. 04, 2005, Alistair Cockburn (v 0.9 to be updated after reader comments)_
+
+This is how hexagonal architecture was defined, and the purpose to have it.
+
+# How it works
+
+![](https://miro.medium.com/v2/resize:fit:700/0*ZqQHy2ZArotIAFwZ.png)
+
+# Ports
+
+Ports are the interface for the Business Domain, to interact with the data outside of the domain.
+
+> _A good practice to build ports is to build the interfaces._
+
+- Inbound Port/Driving Port: the interface expose the functionality out of the domain.
+- Outbound Port/Driven Port: to invoke/trigger things out of the domain. For example, CRUD on a database, consume a 3rd Party API etc.
+
+# Adapters
+
+- Primary/Driving/**Inbound** Adapter. An adapter to use the implementation of the inbound port. It could be a RESTful API controller, a MVC web controller, they are triggers in the services.
+- Secondary/Driven/**Outbound** Adapter. An adapter that trigger the other outbound services through Outbound Adapters. It could be a connection to a database, or a client to connect to another RESTful API etc.
+
+# Example — A Hexagonal Architecture Ticket System
+
+> _Still not clear enough?_
+
+**Talk is cheap, show me the codes.** 🤣
+
+I made an example in NestJs. (NestJS (not NextJS) is a powerful back-end node framework)
+
+![](https://miro.medium.com/v2/resize:fit:700/0*IMitMmjKB3ecuBFO.png)
+
+[https://github.com/tim-hub/nestjs-hexagonal-example](https://github.com/tim-hub/nestjs-hexagonal-example)
+
+In the example, the domain here is ticketing.
+
+- It allow other services `create` and `findAll` tickets, this is the INBOUND
+- And it allow `create` and `find` records from DB (TicketInMemory). Which is the OUTBOUND.
+
+The Hexagonal Architecture made it easy to switch to another Data Store, for example, PostgresDB, DynamoDB etc, simply implement the `ITicketRepository` without any domain logic change.
+
+# Summary
+
+**Pros**
+
+- Flexibility. Hexagonal architecture is very useful for organizing Micro Services to make them easier to communicate to each other.
+- Decoupling. At the same time, In the patter, different services are decoupled to easily build small domain service with boundaries.
+
+**Cons**
+
+- It could possibly increase code duplication, to re-use `adapters` and different but similar `model` codes.
