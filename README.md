@@ -1,4 +1,4 @@
-# Bento Style's Astro Portfolio from TechTim
+# TechTim's Astro Portfolio in Bento Style
 
 This template helps you build a portfolio using Astro, Typescript, React, Tailwind CSS, and Shadcn UI.
 
