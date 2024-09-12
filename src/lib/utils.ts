@@ -17,7 +17,7 @@ export const shuffleArray = (array: Array<any>) => {
   }
 };
 
-export const getUserTimeZone = (): string => {
+export const getUserTimeZoneInBrowser = (): string => {
   return Intl.DateTimeFormat().resolvedOptions().timeZone;
 };
 
@@ -30,7 +30,7 @@ const getLocalLanguage = (): string => {
 
 export const formateLocalDate = (
   date: Date,
-  timeZone: string = getUserTimeZone(),
+  timeZone: string = getUserTimeZoneInBrowser(),
 ): string => {
   return new Intl.DateTimeFormat(getLocalLanguage(), {
     year: "numeric",
@@ -42,7 +42,7 @@ export const formateLocalDate = (
 
 export const formateLocalMonth = (
   date: Date,
-  timeZone: string = getUserTimeZone(),
+  timeZone: string = getUserTimeZoneInBrowser(),
 ): string => {
   return new Intl.DateTimeFormat(getLocalLanguage(), {
     year: "numeric",

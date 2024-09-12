@@ -7,6 +7,7 @@ export const PROFILE = {
         "Learn, Share and Grow ❤️ -- Software Engineer | AWS Professional | Open Source Lover  --☘️ Be more productive, Better in communicating, Contribute more to community. | Tech Tim's New Astro Portfolio",
     },
   },
+  timezone: "Australia/Sydney",
   firstName: "Tim",
   name: "Tech Tim",
   headLine: "Learn, Share and Grow ❤️",
