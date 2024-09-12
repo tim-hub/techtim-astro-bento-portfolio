@@ -1,7 +1,4 @@
 ---
-import BaseLayout from './BaseLayout.astro';
-import CustomisedBreadCrumbs from "../components/CustomisedBreadCrumbs.astro";
-import BottomLayout from "./BottomLayout.astro";
 import ContentTags from "../components/ContentTags.astro";
 import IndexPageLayout from "./IndexPageLayout.astro";
 
@@ -13,17 +10,17 @@ const {title, description, image, startDate, tags} = frontmatter;
 <IndexPageLayout title={title} description={description} image={image} subTitle={title}>
 
   <div class="w-full justify-center flex flex-col ">
-
-
     {tags &&
       <div class="pb-4 mx-auto">
         <ContentTags tags={tags}/>
       </div>}
 
-
     {
       startDate &&
-      <div class="text-sm text-light my-2 sr-only mx-auto">{startDate}</div>
+      <div class="text-sm text-light my-2 sr-only mx-auto">
+        {startDate}
+      <!--  screen reader only date-->
+      </div>
     }
 
     <div class="prose mx-auto ">

@@ -26,10 +26,11 @@ projects.sort((a: any, b: any) => {
 
 <IndexPageLayout title="Projects" description="Projects I have worked on" subTitle="My Projects">
 
+
   {
     projects.map((entity: any) => (
       <ProjectCard
-        class="w-full sm:w-2/5 "
+        class="w-full sm:w-2/5"
         key={entity.data.title}
         href={'/projects/' + entity.slug}
         heading={entity.data.title}
@@ -40,5 +41,6 @@ projects.sort((a: any, b: any) => {
       />
     ))
   }
+
 
 </IndexPageLayout>
