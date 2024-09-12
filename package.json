@@ -5,6 +5,11 @@
   "author": {
     "name": "techtim42"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tim-hub/techtim-astro-bento-portfolio"
+  },
+  "homepage": "https://techtim42.com",
   "keywords": [
     "astro",
     "portfolio",

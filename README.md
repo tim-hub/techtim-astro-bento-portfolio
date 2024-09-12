@@ -28,7 +28,7 @@ To install and run the project locally, follow these steps:
 1. Clone this repository:
 
    ```bash
-   git clone https://github.com/tim-hub/techtim42
+   git clone https://github.com/tim-hub/techtim-astro-bento-portfolio
    ```
 
 2. Navigate to the project directory:

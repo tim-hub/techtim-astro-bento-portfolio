@@ -11,7 +11,7 @@ export const PROFILE = {
   headLine: 'Learn, Share and Grow ❤️',
   headLine2: 'I enjoy providing software solutions and bring ideas to life and solve real-world problems.',
   website: 'https://techtim42.com',
-  repo: 'https://github.com/tim-hub/techtim42',
+  repo: 'https://github.com/tim-hub/techtim-astro-bento-portfolio',
   avatarUrl: '/techtim42.png',
   shortIntros: [
     '💻 Software/AI Engineer | Open Source Lover | Self-starter',
