@@ -1,10 +1,22 @@
 {
   "name": "@tim-hub/techtim42",
   "version": "1.0.0",
-  "description": "An Astro template for personal porfolio.",
+  "description": "An Astro template for personal portfolio, including blog, projects, and more.",
   "author": {
     "name": "techtim42"
   },
+  "keywords": [
+    "astro",
+    "portfolio",
+    "blog",
+    "projects",
+    "experience",
+    "tags system",
+    "tailwindcss",
+    "react",
+    "bento",
+    "shadcn/ui"
+  ],
   "license": "MIT",
   "scripts": {
     "build": "astro build",
