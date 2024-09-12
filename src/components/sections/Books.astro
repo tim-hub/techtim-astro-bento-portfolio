@@ -1,9 +1,9 @@
 ---
-
 import { getCollection } from "astro:content";
+import { Button } from "../ui/button";
 
 
-const books = await getCollection('books');
+let books = await getCollection('books');
 
 books.sort(
   (a, b) => {
@@ -11,7 +11,7 @@ books.sort(
   }
 );
 
-
+books = books.slice(0, 5);
 ---
 <div class="h-full">
   <p class="text-sm font-light my-1">
@@ -23,12 +23,16 @@ books.sort(
         {books.map(
           (book) => (
             <li>
-              <a href={`/books/${book.slug}`} class="hover:font-bold underline">{book.data.title}</a>
-              <span class="text-sm font-thin italic">- {book.data.author}</span>
+              <a href={`/books/${book.slug}`} class=" hover:font-bold hover:underline">{book.data.title}</a>
+              <span class="text-xs font-thin italic">- {book.data.author}</span>
             </li>
           )
         )}
       </ul>
+      <a href="/books">
+        <Button variant="link" className="pl-0"> View More</Button>
+      </a>
     </div>
   </div>
+
 </div>

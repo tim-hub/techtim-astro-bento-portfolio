@@ -13,11 +13,9 @@ export const PROFILE = {
   website: 'https://techtim42.com',
   avatarUrl: '/techtim42.png',
   shortIntros: [
-    '💻 Software/AI Engineer | AWS Professional | Open Source Lover',
-    '☁️ AWS Community Builder',
-    '☘️ Passionate about Dev Experience(DX) Improvement',
-    '', // for empty line
-    '', // for empty line
+    '💻 Software/AI Engineer | Open Source Lover | Self-starter',
+    '☁️ AWS Professional | AWS Community Builder',
+    '☘️ Passionate about Dev Experience(DX) Improvement and bringing ideas to life',
     '📈 Unprofessional Investor',
     '🌱 Part-time blogger and unprofessional Youtuber',
     '📚 Book reader | 🥏 Frisbee Ultimate Player | 🎲 Board Game Player',
