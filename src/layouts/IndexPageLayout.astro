@@ -27,7 +27,7 @@ if (!subTitle) {
         >
           {subTitle}
         </h2>
-        <p class="text-center text-sm">
+        <p class={`mx-10 italic py-4 text-sm ${description?.length > 50 ? 'text-left' : 'text-center'}`}>
           {description}
         </p>
       </div>
