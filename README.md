@@ -2,7 +2,7 @@
 
 This template helps you build a portfolio using Astro, Typescript, React, Tailwind CSS, and Shadcn UI.
 
-
+- [Live Demo](https://techtim42.com)
 
 ## Technologies Used
 
@@ -12,13 +12,14 @@ This project utilizes the following technologies:
 - **Tailwind CSS**: A utility-first CSS framework for rapid and responsive design.
 - **Shadcn UI**: A collection of accessible and easy-to-use UI components.
 - **React**: For interactive components and advanced functionality.
+- **TypeScript**: For static type checking and improved developer experience.
 
 ## Requirements
 
 Before starting, make sure you have the following requirements installed:
 
-- Node.js (version 14 or higher)
-- npm or yarn
+- Node.js (version 18 or higher)
+- pnpm (version 8 or higher)
 
 ## Installation
 
@@ -27,42 +28,29 @@ To install and run the project locally, follow these steps:
 1. Clone this repository:
 
    ```bash
-   git clone https://github.com/bue221/astro-portfolio.git
+   git clone https://github.com/tim-hub/techtim42
    ```
 
 2. Navigate to the project directory:
 
    ```bash
-   cd astro-portfolio
+   cd techtim42
    ```
 
 3. Install the dependencies:
 
    ```bash
-   npm install
-   # or
-   yarn install
+   pnpm install
    ```
 
 4. Start the development server:
 
    ```bash
-   npm run dev
-   # or
-   yarn dev
+   pnpm run dev
    ```
 
-5. Open your browser and visit `http://localhost:3000` to see your portfolio in action.
+5. Open your browser and visit `http://localhost:4312` to see your portfolio in action.
 
-## Project Structure
-
-A brief overview of the project structure:
-
-- **/public**: Images and other static files.
-- **/src**: Contains all Astro components and pages.
-- **/styles**: Custom CSS files.
-- **astro.config.mjs**: Main configuration for Astro.
-- **tailwind.config.js**: Configuration for Tailwind CSS.
 
 ## Important Considerations
 
@@ -95,4 +83,4 @@ This project was inspired by several outstanding portfolios. Here are some that 
   - `src/content` folder for blog posts, project data and profile data
   - `src/content/profileData.ts` for general profile data
 - Tags system
-- 
+- Simplified Dark/Light mode toggle
