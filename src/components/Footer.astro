@@ -1,3 +1,6 @@
+---
+import { PROFILE } from "../content/profileData";
+---
 <footer class="border-t py-6 md:px-8 md:py-0 w-full max-w-screen-lg">
   <div
     class="container flex flex-col items-center justify-between gap-4 md:h-24 md:flex-row"
@@ -7,7 +10,7 @@
     >
       Built by{' '}
       <a
-        href="https://github.com/tim-hub"
+        href={PROFILE.links.github}
         target="_blank"
         rel="noreferrer"
         class="font-medium underline underline-offset-4"
@@ -17,7 +20,7 @@
       . with <span class="text-red-500">❤️</span> using Astro, React, Typescript and Tailwind CSS. The
       source code is available on{' '}
       <a
-        href="https://github.com/tim-hub/techtim42"
+        href={PROFILE.repo}
         target="_blank"
         rel="noreferrer"
         class="font-medium underline underline-offset-4"
