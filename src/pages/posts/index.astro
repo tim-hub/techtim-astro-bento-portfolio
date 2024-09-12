@@ -15,23 +15,25 @@ posts.sort((a: any, b: any) => {
 });
 ---
 
-<IndexPageLayout title="Blog" description="This is a simple blog for my this profile website." subTitle="My Simple Blog">
+<IndexPageLayout title="Blog" description="This is a simple blog for my this profile website."
+                 subTitle="My Simple Blog">
 
-
-  {
-    posts.map((entity: any) => (
-      <ProjectCard
-        class="w-full sm:w-2/5"
-        key={entity.data.title}
-        href={'/posts/' + entity.slug}
-        heading={entity.data.title}
-        subheading={entity.data.description}
-        altText={entity?.data?.image.alt}
-        imagePath={entity?.data?.image.url}
-        dateStart={entity.data.startDate}
-      />
-    ))
-  }
+  <div class="grid grid-cols-3 gap-3">
+    {
+      posts.map((entity: any) => (
+        <ProjectCard
+          class=""
+          key={entity.data.title}
+          href={'/posts/' + entity.slug}
+          heading={entity.data.title}
+          subheading={entity.data.description}
+          altText={entity?.data?.image.alt}
+          imagePath={entity?.data?.image.url}
+          dateStart={entity.data.startDate}
+        />
+      ))
+    }
+  </div>
 
 
 </IndexPageLayout>
