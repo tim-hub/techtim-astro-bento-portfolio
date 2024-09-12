@@ -51,7 +51,6 @@ To install and run the project locally, follow these steps:
 
 5. Open your browser and visit `http://localhost:4312` to see your portfolio in action.
 
-
 ## Important Considerations
 
 - **Accessibility**: Ensure your portfolio is accessible to all users, including those with disabilities.
@@ -67,14 +66,12 @@ Contributions are welcome! If you have ideas or improvements, please open an iss
 
 This project is licensed under the [MIT License](LICENSE).
 
-
 ## Inspiration
 
 This project was inspired by several outstanding portfolios. Here are some that served as references:
 
 - [Bento Like Portfolio](https://github.com/Ladvace/astro-bento-portfolio)
 - [Minimal and bento Portfolio ](https://github.com/bue221/astro-portfolio)
-
 
 ### Differences / Improvements
 

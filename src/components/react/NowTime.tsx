@@ -1,28 +1,28 @@
-import React, { useState, useEffect } from 'react'
-import moment from 'moment-timezone'
+import React, { useState, useEffect } from "react";
+import moment from "moment-timezone";
 import { formateLocalDate } from "@/lib/utils.ts";
 
-const NowTime = ({timezone}: any) => {
-  const [dateTime, setDateTime] = useState<Date>(new Date())
+const NowTime = ({ timezone }: any) => {
+  const [dateTime, setDateTime] = useState<Date>(new Date());
   const updateDuration = 1001; // be naughty
 
   useEffect(() => {
     const interval = setInterval(() => {
-      const now = moment().tz(timezone)
-      setDateTime(now.toDate())
-    }, updateDuration)
-    return () => clearInterval(interval)
-  }, [timezone])
+      const now = moment().tz(timezone);
+      setDateTime(now.toDate());
+    }, updateDuration);
+    return () => clearInterval(interval);
+  }, [timezone]);
 
   if (dateTime) {
     return (
       <div>
         <p>{formateLocalDate(dateTime)}</p>
-        <p className={'text-2xl my-2'}>{dateTime.toLocaleTimeString()}</p>
+        <p className={"text-2xl my-2"}>{dateTime.toLocaleTimeString()}</p>
         <p className="text-sm text-gray-500">{timezone}</p>
       </div>
-    )
+    );
   }
-}
+};
 
-export default NowTime
+export default NowTime;

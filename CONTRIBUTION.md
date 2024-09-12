@@ -1,4 +1,3 @@
-
 ## Getting Started
 
 First, run the development server:
@@ -8,7 +7,6 @@ pnpm run dev
 ```
 
 Check http://localhost:4321/
-
 
 ## Project Structure
 
