@@ -3,6 +3,7 @@
 This template helps you build a portfolio using Astro, Typescript, React, Tailwind CSS, and Shadcn UI.
 
 - [Live Demo](https://techtim42.com)
+- [Github Repo](https://github.com/tim-hub/techtim-astro-bento-portfolio)
 
 ## Technologies Used
 
