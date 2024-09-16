@@ -51,6 +51,10 @@ To install and run the project locally, follow these steps:
    ```
 
 5. Open your browser and visit `http://localhost:4312` to see your portfolio in action.
+6. Config your site
+   1. Edit `src/content/profileData.ts` to add your profile data
+   2. Edit `astro.config.mjs` to change the site information
+
 
 ## Important Considerations
 
