@@ -65,7 +65,9 @@ Contributions are welcome! If you have ideas or improvements, please open an iss
 
 ## License
 
-This project is licensed under the [MIT License](LICENSE).
+- This source codes are licensed under the [MIT License](LICENSE).
+- The content (`src/content/`) of the portfolio is licensed under the [Creative Commons Attribution 4.0 International License](https://creativecommons.org/licenses/by/4.0/).
+- The images (`public/`) used in the project are for template demonstration purposes only and should not be reused without permission.
 
 ## Inspiration
 
