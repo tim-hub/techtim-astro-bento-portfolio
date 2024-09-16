@@ -3,14 +3,14 @@ import '@/styles/globals.css'
 import '@/styles/fonts.css'
 
 interface Props {
-  title?: string | undefined
-  description?: string | undefined
-  ogImage?: URL | undefined
+  title?: string
+  description?: string
+  ogImage?: URL
+  canonicalURL?: URL
 }
 
-const canonicalURL = new URL(Astro.url.pathname, Astro.site)
-
-const {title, description, ogImage} = Astro.props
+const {title, description, ogImage, canonicalURL} = Astro.props
+const canonical = canonicalURL? canonicalURL: new URL(Astro.url.pathname, Astro.site)
 ---
 
 <meta charset="utf-8"/>
@@ -18,7 +18,7 @@ const {title, description, ogImage} = Astro.props
 <meta name="googlebot" content="index, follow"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <meta name="generator" content={Astro.generator}/>
-<link rel="canonical" href={canonicalURL}/>
+<link rel="canonical" href={canonical}/>
 <link
   rel="shortcut icon"
   type="image/svg+xml"
@@ -29,7 +29,7 @@ const {title, description, ogImage} = Astro.props
 <meta name="description" content={description}/>
 
 <meta property="og:type" content="website"/>
-<meta property="og:url" content={canonicalURL}/>
+<meta property="og:url" content={canonical}/>
 <meta property="og:title" content={title}/>
 <meta property="og:description" content={description}/>
 {
@@ -42,7 +42,7 @@ const {title, description, ogImage} = Astro.props
   }
 
 <meta property="twitter:card" content="summary_large_image"/>
-<meta property="twitter:url" content={canonicalURL}/>
+<meta property="twitter:url" content={canonical}/>
 <meta property="twitter:title" content={title}/>
 <meta property="twitter:description" content={description}/>
 

@@ -4,7 +4,7 @@ import TopLayout from 'src/layouts/TopLayout.astro'
 import BottomLayout from 'src/layouts/BottomLayout.astro'
 import CustomisedBreadCrumbs from "../components/CustomisedBreadCrumbs.astro";
 
-let {title, description, image, subTitle} = Astro.props;
+let {title, description, image, subTitle, canonicalURL} = Astro.props;
 
 if (!subTitle) {
   subTitle = title;
@@ -15,6 +15,7 @@ if (!subTitle) {
   title={title}
   description={description}
   ogImage={image?.url}
+  canonicalURL={canonicalURL}
 >
   <main class="flex min-h-[80vh] flex-auto flex-col w-full p-4 max-w-screen-lg" transition:name="hero">
     <TopLayout>

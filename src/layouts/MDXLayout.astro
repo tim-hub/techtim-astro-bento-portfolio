@@ -3,11 +3,11 @@ import ContentTags from "../components/ContentTags.astro";
 import IndexPageLayout from "./IndexPageLayout.astro";
 
 const {frontmatter} = Astro.props;
-const {title, description, image, startDate, tags} = frontmatter;
+const {title, description, image, startDate, tags, canonical} = frontmatter;
 // frontmatter is from MDX metadata for MD pages, we now use content for data now, we use frontmatter for backward compatibility
 ---
 
-<IndexPageLayout title={title} description={description} image={image} subTitle={title}>
+<IndexPageLayout title={title} description={description} image={image} subTitle={title} canonicalURL={canonical}>
 
   <div class="w-full justify-center flex flex-col ">
     {tags &&
@@ -19,7 +19,7 @@ const {title, description, image, startDate, tags} = frontmatter;
       startDate &&
       <div class="text-sm text-light my-2 sr-only mx-auto">
         {startDate}
-      <!--  screen reader only date-->
+        <!--  screen reader only date-->
       </div>
     }
 

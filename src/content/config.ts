@@ -51,6 +51,7 @@ const postCollection = defineCollection({
       })
       .optional(),
     tags: z.array(z.string()).optional(),
+    canonical: z.string().optional(),
   }),
 });
 
