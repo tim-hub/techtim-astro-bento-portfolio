@@ -1,6 +1,5 @@
 ---
 import '@/styles/globals.css'
-import '@/styles/fonts.css'
 
 interface Props {
   title?: string
@@ -46,3 +45,5 @@ const canonical = canonicalURL? canonicalURL: new URL(Astro.url.pathname, Astro.
 <meta property="twitter:title" content={title}/>
 <meta property="twitter:description" content={description}/>
 
+<link rel="preload" href="shttps://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap"></noscript>
