@@ -1,7 +1,7 @@
 ---
-import { buttonVariants } from '../components/ui/button'
-import { ModeToggle } from '../components/react/ThemeToggle'
-import { PROFILE } from "../content/profileData";
+import {buttonVariants} from '../components/ui/button'
+import {ModeToggle} from '../components/react/ThemeToggle'
+import {PROFILE} from "../content/profileData";
 
 const SITE = PROFILE.site
 ---
@@ -45,3 +45,18 @@ const SITE = PROFILE.site
     </div>
   </div>
 </header>
+
+
+<script is:inline>
+  document.addEventListener('astro:after-swap', function () {
+    if (localStorage.getItem('theme') === 'dark')
+      document.documentElement.classList.toggle('dark', true)
+  })
+
+  const getThemePreference = () => {
+    return localStorage.getItem('theme')
+  }
+
+  const isDark = getThemePreference() === 'dark'
+  document.documentElement.classList[isDark ? 'add' : 'remove']('dark')
+</script>
