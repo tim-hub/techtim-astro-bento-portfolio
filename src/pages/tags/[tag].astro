@@ -28,7 +28,7 @@ const {tag} = Astro.params;
 const {items} = Astro.props;
 ---
 <IndexPageLayout title={tag} description="A new dimension to access content of this website" subTitle={tag}>
-
+ <div class="flex flex-col gap-3">
   {
     items?.map((post) =>
       <>
@@ -37,12 +37,8 @@ const {items} = Astro.props;
                      altText={post.data?.image?.alt} dateStart={post.data.startDate}
 
         />
-        <p>
-          {post.data.title}
-        </p>
       </>
     )
   }
-
-
+ </div>
 </IndexPageLayout>
