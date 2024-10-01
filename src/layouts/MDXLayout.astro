@@ -8,8 +8,7 @@ const {title, description, image, startDate, tags, canonical} = frontmatter;
 ---
 
 <IndexPageLayout title={title} description={description} image={image} subTitle={title} canonicalURL={canonical}>
-
-  <div class="w-full justify-center flex flex-col ">
+  <div class="w-full justify-center flex flex-col">
     {tags &&
       <div class="pb-4 mx-auto">
         <ContentTags tags={tags}/>
@@ -23,10 +22,10 @@ const {title, description, image, startDate, tags, canonical} = frontmatter;
       </div>
     }
 
-    <div class="prose mx-auto ">
+    <article class="prose mx-auto dark:prose-invert ">
       <!--required with tailwind typography plugin + prose to render html-->
       <slot/>
-    </div>
+    </article>
   </div>
 
 </IndexPageLayout>
