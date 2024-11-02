@@ -3,7 +3,7 @@
 This template helps you build a portfolio using Astro, Typescript, React, Tailwind CSS, and Shadcn UI.
 
 - [Live Demo](https://techtim42.com)
-- [Github Repo](https://github.com/tim-hub/techtim-astro-bento-portfolio)
+- [GitHub Repo](https://github.com/tim-hub/techtim-astro-bento-portfolio)
 
 ## Technologies Used
 
@@ -35,7 +35,7 @@ To install and run the project locally, follow these steps:
 2. Navigate to the project directory:
 
    ```bash
-   cd techtim42
+   cd techtim-astro-bento-portfolio
    ```
 
 3. Install the dependencies:
