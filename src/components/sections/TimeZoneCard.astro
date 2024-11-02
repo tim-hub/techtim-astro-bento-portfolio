@@ -4,7 +4,7 @@ const {timezone = null} = Astro.props
 
 ---
 
-<div class="p-1 flex flex-row items-center gap-2">
+<div class="p-1 flex flex-row items-center gap-2 animate-appear">
   <NowTime timezone={timezone} client:load />
 </div>
 

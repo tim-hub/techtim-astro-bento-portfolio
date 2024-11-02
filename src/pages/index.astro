@@ -28,7 +28,7 @@ const SITE = PROFILE.site
     transition:animate="fade"
     class="relative m-auto grid w-full max-w-6xl gap-2 overflow-hidden p-2 sm:gap-2 sm:p-4 md:grid-cols-2 md:gap-3 md:p-6 lg:grid-cols-12 lg:gap-4"
   >
-    <Card colSpan="lg:col-span-9  md:col-span-2" rowSpan="md:row-span-1 lg:row-span-4">
+    <Card colSpan="lg:col-span-9 md:col-span-2" rowSpan="md:row-span-1 lg:row-span-4">
       <IntroCard/>
     </Card>
     <Card colSpan="lg:col-span-3 md:col-span-1" rowSpan="md:row-span-3 lg:row-span-6" title="About me">
@@ -84,26 +84,26 @@ const SITE = PROFILE.site
   </main>
 </BaseLayout>
 
-<script>
-  // JS for animating the cards
-  import { stagger, spring, timeline, type TimelineDefinition } from 'motion'
-  import { loaderAnimation } from '../lib/constants'
+<!--<script>-->
+<!--  // JS for animating the cards-->
+<!--  import { stagger, spring, timeline, type TimelineDefinition } from 'motion'-->
+<!--  import { loaderAnimation } from '../lib/constants'-->
 
-  const cards = document.querySelectorAll('.card-animate')
+<!--  const cards = document.querySelectorAll('.card-animate')-->
 
-  const sequence = [
-    loaderAnimation,
-    [
-      cards,
-      {y: ['40%', '0%'], opacity: [0, 1]},
-      {
-        at: '-0.1',
-        duration: 0.2,
-        delay: stagger(0.1),
-        easing: spring({velocity: 200, stiffness: 50, damping: 10}),
-      },
-    ],
-  ]
+<!--  const sequence = [-->
+<!--    loaderAnimation,-->
+<!--    [-->
+<!--      cards,-->
+<!--      {y: ['40%', '0%'], opacity: [0, 1]},-->
+<!--      {-->
+<!--        at: '-0.1',-->
+<!--        duration: 0.2,-->
+<!--        delay: stagger(0.1),-->
+<!--        easing: spring({velocity: 200, stiffness: 50, damping: 10}),-->
+<!--      },-->
+<!--    ],-->
+<!--  ]-->
 
-  timeline(sequence as TimelineDefinition)
-</script>
+<!--  timeline(sequence as TimelineDefinition)-->
+<!--</script>-->
