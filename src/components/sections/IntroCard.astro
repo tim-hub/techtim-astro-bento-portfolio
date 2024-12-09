@@ -1,7 +1,7 @@
 ---
-import { Button } from '../ui/button'
-import { PROFILE } from "../../content/profileData";
-import { Linkedin, Github, Mail, Youtube, Twitter, Rss, Book } from 'lucide-react'
+import {Button} from '../ui/button'
+import {PROFILE} from "../../content/profileData";
+import {Linkedin, Github, Mail, Youtube, Twitter, Rss, Book, PanelsTopLeft} from 'lucide-react'
 ---
 
 <div class="flex h-full w-full animate-appear">
@@ -45,6 +45,14 @@ import { Linkedin, Github, Mail, Youtube, Twitter, Rss, Book } from 'lucide-reac
         </a>
       }
       {
+        PROFILE.links?.bluesky && <a href={PROFILE.links.bluesky} aria-label="bluesky profile" target="_blank">
+          <Button>
+            <PanelsTopLeft/>
+            <span class="sr-only">bluesky profile</span>
+          </Button>
+        </a>
+      }
+      {
         PROFILE.links?.twitter && <a href={PROFILE.links.twitter} aria-label="twitter profile" target="_blank">
           <Button>
             <Twitter/>
@@ -54,7 +62,7 @@ import { Linkedin, Github, Mail, Youtube, Twitter, Rss, Book } from 'lucide-reac
       }
 
       {
-        PROFILE.links?.goodreads && <a href={PROFILE.links.goodreads} aria-label="twitter profile" target="_blank">
+        PROFILE.links?.goodreads && <a href={PROFILE.links.goodreads} aria-label="goodreads profile" target="_blank">
           <Button>
             <Book/>
             <span class="sr-only">Goodreads</span>

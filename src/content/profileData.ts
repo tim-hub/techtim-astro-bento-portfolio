@@ -43,6 +43,7 @@ export const PROFILE = {
     github: "https://github.com/tim-hub",
     medium: "https://medium.com/@TechTim42",
     twitter: "https://twitter.com/TechTim42",
+    bluesky: "https://bsky.app/profile/techtim.bsky.social",
     thread: "https://www.threads.net/@techtim2024",
     mastodon: "https://mastodon.social/@techtim42",
     youtube: "https://www.youtube.com/@techtim42",
