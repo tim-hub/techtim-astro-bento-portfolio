@@ -41,7 +41,7 @@
     "@contentful/rich-text-html-renderer": "^17.0.0",
     "@radix-ui/react-dropdown-menu": "^2.1.1",
     "@radix-ui/react-separator": "^1.1.0",
-    "@radix-ui/react-slot": "^1.1.0",
+    "@radix-ui/react-slot": "^1.1.1",
     "astro": "^4.16.16",
     "astro-breadcrumbs": "^3.2.0",
     "class-variance-authority": "^0.7.0",
